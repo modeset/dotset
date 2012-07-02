@@ -1,0 +1,44 @@
+[user]
+  name = $GIT_NAME
+  email = $GIT_EMAIL
+[github]
+  user = $GITHUB_USER
+  token = $GITHUB_TOKEN
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = auto
+[core]
+  excludesfile = ~/.gitignore
+[alias]
+  c = commit -a
+  a = add
+  di = diff
+  dic = diff --cached
+  pl = pull
+  ps = push
+  pr = pull --rebase
+  st = status
+  out = log origin..HEAD
+  br = branch
+  co = checkout
+  del = !FILES=$(git ls-files --deleted) && git rm $FILES
+  msg = commit --allow-empty -m
+[help]
+  autocorrect = 1
+[push]
+  default = matching
+[branch]
+  autosetupmerge = always
+  autosetuprebase = always
+[merge]
+  tool = chdiff
+  trustExitCode = 0
+[mergetool "chdiff"]
+  cmd = /usr/bin/env chdiff --wait "$LOCAL" "$REMOTE"
+  keepBackup = false
+  trustExitCode = false
+[rerere]
+  enabled = 1
+

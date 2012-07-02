@@ -1,0 +1,22 @@
+
+if command -v rbenv &> /dev/null ; then
+  eval "$(rbenv init -)"
+fi
+
+if [[ -f ~/.bash/paths ]]; then source ~/.bash/path ; fi
+if [[ -f ~/.bash/colors ]]; then source ~/.bash/colors ; fi
+if [[ -f ~/.bash/prompt ]]; then source ~/.bash/prompt ; fi
+if [[ -f ~/.bash/aliases ]]; then source ~/.bash/aliases ; fi
+if [[ -f ~/.bash/completions ]]; then source ~/.bash/completions ; fi
+if [[ -f ~/.bashrc_local ]]; then source ~/.bashrc_local ; fi
+
+# TODO: should these be moved, look at other options
+export HISTCONTROL=ignoreboth
+export HISTSIZE=500
+unset MAILCHECK
+set completion-ignore-case on
+
+shopt -s cdspell
+set -o vi
+
+echo -e "\033[0;35m------------------------------------------\033[0m"

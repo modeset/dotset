@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ "$1" == "-h" || "$1" == "--help" || "$1" == "help" ]]; then cat <<HELP
+Move file(s) to the trash instead of a complete remove:
+
+Usage: $(basename "$0") [item]
+Example: $(basename "$0") example.txt
+HELP
+exit; fi
+
+# trash item
+mv "$@" ~/.Trash/

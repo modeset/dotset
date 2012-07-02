@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ "$1" == "-h" || "$1" == "--help" || "$1" == "help" ]]; then cat <<HELP
+Shortcut for locating a process by name using ps aux | grep:
+
+Usage: $(basename "$0") [process]
+Example: $(basename "$0") node
+HELP
+exit; fi
+
+ps aux | grep $*

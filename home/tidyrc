@@ -1,0 +1,12 @@
+indent: auto
+indent-spaces: 2
+logical-emphasis: yes
+new-blocklevel-tags: section, article, aside, hgroup, header, footer, nav, figure, figcaption
+new-empty-tags: wbr, keygen
+new-inline-tags: video, audio, embed, mark, progress, meter, time, ruby, rt, rp, canvas, command, details, datalist
+show-errors: 20
+tidy-mark: no
+wrap: 0
+wrap-php: no
+wrap-sections: no
+

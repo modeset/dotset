@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ "$1" == "-h" || "$1" == "--help" || "$1" == "help" ]]; then cat <<HELP
+Find a process id by name and kill it with fire:
+
+Usage: $(basename "$0") [process name]
+Example: $(basename "$0") evergreen
+HELP
+exit; fi
+
+ps aux | grep $* | awk '{ print $2; }' | xargs kill -9

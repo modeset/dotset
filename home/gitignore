@@ -1,0 +1,15 @@
+.DS_Store
+.idea
+*.tmproj
+.project
+.settings
+.svn
+*.swp
+.livereload
+.sass-cache
+.rake_cache
+tags
+typescript
+tmp/restart.txt
+vendor/bundle
+.bundle/

@@ -1,0 +1,29 @@
+# Map git commands through hub
+alias git=hub
+
+# Use MacVim's version of the Vim executable instead of the systems
+alias vim='/usr/local/Cellar/macvim/7.3-64/MacVim.app/Contents/MacOS/Vim'
+
+# Open Apps
+alias safari='open -a Safari'
+alias firefox='open -a FireFox'
+alias chrome='open -a Google\ Chrome'
+alias propane='open -a Propane'
+alias preview='open -a Preview'
+alias itunes='open -a iTunes'
+
+# Handy stuff
+alias reload="source ~/.bash_profile && cd ../ && cd -"
+alias cp='cp -i'
+alias mv='mv -i'
+alias ls='ls -G'
+alias la='ls -lA'
+alias ll='ls -l'
+alias las='ls -lAS'
+alias hi='history | tail -50'
+alias be='bundle exec'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+

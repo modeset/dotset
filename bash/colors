@@ -1,0 +1,40 @@
+# Color settings for bash
+export TERM=xterm-color
+export GREP_OPTIONS='--color=auto' GREP_COLOR='0;36'
+export CLICOLOR=1
+
+# The order of the attributes are as follows:
+# 01. directory
+# 02. symbolic link
+# 03. socket
+# 04. pipe
+# 05. executable
+# 06. block special
+# 07. character special
+# 08. executable with setuid bit set
+# 09. executable with setgid bit set
+# 10. directory writable to others, with sticky bit
+# 11. directory writable to others, without sticky bit
+#      LSCOLORS=0102030405060708091011
+export LSCOLORS=excxgxfxbxdxbxbxbxexex
+
+# Color          | Escaped    | ANSI
+# -------------- | ---------- | ------------
+# No Color       | \033[0m    | x (default foreground)
+# Black          | \033[0;30m | a
+# Grey           | \033[1;30m | A
+# Red            | \033[0;31m | b
+# Bright Red     | \033[1;31m | B
+# Green          | \033[0;32m | c
+# Bright Green   | \033[1;32m | C
+# Brown          | \033[0;33m | d
+# Yellow         | \033[1;33m | D
+# Blue           | \033[0;34m | e
+# Bright Blue    | \033[1;34m | E
+# Magenta        | \033[0;35m | f
+# Bright Magenta | \033[1;35m | F
+# Cyan           | \033[0;36m | g
+# Bright Cyan    | \033[1;36m | G
+# Bright Grey    | \033[0;37m | h
+# White          | \033[1;37m | H
+

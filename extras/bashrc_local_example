@@ -1,0 +1,11 @@
+
+# Keep from public view, last in the list being sourced from ~/.bashrc
+
+# Set your git and github user info and credentials
+export GIT_NAME='Full name'
+export GIT_EMAIL='Email'
+export GITHUB_USER='GitHub user name'
+export GITHUB_TOKEN='GitHub token'
+
+# Add any aliases, settings or overrides
+

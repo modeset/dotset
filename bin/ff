@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ "$1" == "-h" || "$1" == "--help" || "$1" == "help" ]]; then cat <<HELP
+Find file(s) based on a pattern:
+
+Usage: $(basename "$0") [pattern]
+Example: $(basename "$0") .js
+Example: $(basename "$0") application
+HELP
+exit; fi
+
+find . -type f -iname '*'$*'*' -ls

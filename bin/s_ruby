@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ "$1" == "-h" || "$1" == "--help" || "$1" == "help" ]]; then cat <<HELP
+Search the Ruby Doc API Docs:
+
+Usage: $(basename "$0") [term]
+Example: $(basename "$0") Dir
+HELP
+exit; fi
+
+# open "http://railsapi.com/doc/rails-v3.0.3_ruby-v1.9.2/index.html?q=$*"
+open "http://ruby-doc.org/core-1.9.3/"
+

@@ -1,0 +1,11 @@
+--type-add
+js=.coffee
+--type-add
+html=.haml
+--type-add
+css=.sass,.scss
+--ignore-dir=log
+--ignore-dir=tmp
+--ignore-dir=vendor
+--sort-files
+-a

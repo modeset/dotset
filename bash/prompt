@@ -1,0 +1,24 @@
+
+parse_git_branch() {
+  __git_ps1 " [git:%s]"
+}
+
+# Send back the results from either rbenv or rvm
+parse_ruby_version() {
+  if command -v rbenv &> /dev/null ; then
+    echo " [$(rbenv version-name)]"
+  else
+    local rvm_version=$( ~/.rvm/bin/rvm-prompt i v )
+    local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
+    [ "$gemset" != "" ] && gemset="@$gemset"
+    [ "$rvm_version" != "" ] && echo " {$rvm_version$gemset}"
+  fi
+}
+
+settitle() {
+  echo -n -e "\033]0;$*\007"
+}
+
+export GIT_PS1_SHOWDIRTYSTATE='true'
+export PS1="\[\033[35m\][\h\[\033[00m\]\[\033[35m\]] \[\033[34m\]\W\[\033[32m\]\$(parse_ruby_version)\[\033[31m\]\$(parse_git_branch)\[\033[00m\] \[\033[0m\]"
+

@@ -1,0 +1,190 @@
+#!/bin/bash
+
+set -e
+ARGS=(install update uninstall backup help)
+CWD=`pwd`
+
+
+## Public API
+# -----------------------------------------------------------------------------
+
+#/ install      Installs from a config file and symlinks core file settings
+install() {
+  backup
+  printf "%sInstalling:\n"
+  install_dots
+  install_directory bash
+  install_directory bin
+  printf "%s\nThanks for flying dotset!\n"
+}
+
+#/ update       Removes existing setup and installs fresh from git
+update() {
+  check_for_dirty_repo
+  uninstall
+  git pull
+  install
+}
+
+#/ uninstall    Restores original dot files (or latest backup)
+uninstall() {
+  if [[ ! -d $CWD/backup ]]; then
+    while true; do
+      echo "No backup found for replacement, continuing will blow away existing dot files."
+      read -p "Do you wish to continue? (yes|no) " yn
+      case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit 0;;
+        * ) echo "Please answer yes or no.";;
+      esac
+    done
+  fi
+  printf "%sUninstalling:\n"
+  uninstall_dots
+  uninstall_directory bash
+  uninstall_directory bin
+  restore_dots
+  restore_directory bash
+  restore_directory bin
+  rm -rf $CWD/backup
+}
+
+#/ backup       Backup the existing dot files from the $HOME directory
+backup() {
+  if [[ -d $CWD/backup ]]; then
+    printf "%sBackup exists, skipping.\n"
+  else
+    printf "%sCreating backup:\n"
+    mkdir -p $CWD/backup
+    backup_dots
+    backup_directory bash
+    backup_directory bin
+  fi
+}
+
+#/ help         Print this message
+help() {
+  cat<<EOF
+Usage: ./$(basename "$0") [${ARGS[@]}]
+
+Commands:
+$(print_usage)
+
+- You are a special butterfly and Mode Set loves you.
+EOF
+}
+
+
+## Internal
+# -----------------------------------------------------------------------------
+
+initialize() {
+  DOTS=$(get_dots)
+}
+
+# Symlink all of the files within a directory($1) based on filetype($2)
+get_dots() {
+  local files=()
+  for file in `find $CWD/home \( ! -regex '.*/\..*' \) -type f -maxdepth 1` ; do
+    files+=(`basename $file`)
+  done
+  echo ${files[@]}
+}
+
+install_dots() {
+  for dot in $DOTS ; do
+    printf "%2slinking $dot file.\n"
+    ln -sf $CWD/home/$dot $HOME/.$dot
+  done
+}
+
+install_directory() {
+  printf "%2slinking $1/ directory.\n"
+  ln -sf $CWD/$1 $HOME/.$1
+}
+
+uninstall_dots() {
+  for dot in $DOTS ; do
+    if [[ -f $HOME/.$dot ]]; then
+      printf "%2sremoving .$dot file.\n"
+      rm $HOME/.$dot
+    fi
+  done
+}
+
+uninstall_directory() {
+  if [[ -d $HOME/.$1 ]]; then
+    printf "%2sremoving .$1/ directory.\n"
+    rm -rf $HOME/.$1
+  fi
+}
+
+restore_dots() {
+  for dot in $DOTS; do
+    if [[ -f $CWD/backup/home/$dot ]]; then
+      printf "%2srestoring .$dot file.\n"
+      mv $CWD/backup/home/$dot $HOME/.$dot
+    fi
+  done
+}
+
+restore_directory() {
+  if [[ -d $CWD/backup/$1 ]]; then
+    printf "%2srestoring .$1/ directory.\n"
+    mv $CWD/backup/$1 $HOME/.$1
+  fi
+}
+
+backup_dots() {
+  mkdir -p $CWD/backup/home
+  for dot in $DOTS; do
+    if [[ -f $HOME/.$dot ]]; then
+      printf "%2sbacking up .$dot file.\n"
+      cp $HOME/.$dot $CWD/backup/home/$dot
+      rm $HOME/.$dot
+    fi
+  done
+}
+
+backup_directory() {
+  if [[ -d $HOME/.$1 ]]; then
+    printf "%2sbacking up .$1/ directory.\n"
+    cp -rf $HOME/.$1/ $CWD/backup/$1
+    rm -rf $HOME/.$1
+  fi
+}
+
+# Before updating, make sure the git directory is clean
+check_for_dirty_repo() {
+  if [ "$(git diff --exit-code)" ]
+  then
+    printf "%sDetected unstaged changes, please stage before continuing!\n"
+    exit 0
+  fi
+}
+
+# Get usage from the public api comments starting with `#/`
+print_usage() {
+  cat $(basename "$0") | grep '^#\/' | sed "s/#\///g" | while read line; do
+    printf "%2s$line\n"
+  done
+}
+
+## Initialization
+# -----------------------------------------------------------------------------
+# See if a valid argument is passed and call it...
+if [[ "$1" != "" ]]; then
+  for i in "${ARGS[@]}" ; do
+    if [[ "$i" == "$1" ]]; then
+      initialize
+      $1
+      exit 0
+    fi
+  done
+fi
+
+# ...otherwise barf out a help warning
+printf "%sNot sure what to do here so calling for help!\n\n"
+help
+exit 0
+
