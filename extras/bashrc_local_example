@@ -1,11 +1,14 @@
 
-# Keep from public view, last in the list being sourced from ~/.bashrc
+# Keep from public view, last in the list being sourced from `~/.bashrc`
+# Manually copy this file as `~/.bashrc_local` and replace the given variables
 
-# Set your git and github user info and credentials
-export GIT_NAME='Full name'
-export GIT_EMAIL='Email'
-export GITHUB_USER='GitHub user name'
-export GITHUB_TOKEN='GitHub token'
+# Set your git/GitHub user info and credentials
+export GIT_AUTHOR_NAME='Your Name'
+export GIT_AUTHOR_EMAIL='you@domain.com'
+export GIT_COMMITTER_NAME='Your Name'
+export GIT_COMMITTER_EMAIL='you@domain.com'
+export GITHUB_USER='your_user_name'
+export GITHUB_TOKEN='your_github_token'
 
 # Add any aliases, settings or overrides
 
