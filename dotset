@@ -173,11 +173,11 @@ print_usage() {
 ## Initialization
 # -----------------------------------------------------------------------------
 # See if a valid argument is passed and call it...
-if [[ "$1" != "" ]]; then
-  for i in "${ARGS[@]}" ; do
-    if [[ "$i" == "$1" ]]; then
+if [[ $1 != "" ]]; then
+  for fn in "${ARGS[@]}"; do
+    if [[ "$fn" == $1 ]]; then
       initialize
-      $1
+      $fn
       exit 0
     fi
   done
