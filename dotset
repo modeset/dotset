@@ -31,7 +31,7 @@ uninstall() {
   if [[ ! -d $CWD/backup ]]; then
     while true; do
       echo "No backup found for replacement, continuing will blow away existing dot files."
-      read -p "Do you wish to continue? (yes|no) " yn
+      read -p "Do you wish to continue? (y/n) " yn
       case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit 0;;
