@@ -1,9 +1,10 @@
+
 # Color settings for bash
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='0;36'
 export CLICOLOR=1
 
-# The order of the attributes are as follows:
+# The order of the attributes are as follows (fgbg):
 # 01. directory
 # 02. symbolic link
 # 03. socket
@@ -37,4 +38,27 @@ export LSCOLORS=excxgxfxbxdxbxbxbxexex
 # Bright Cyan    | \033[1;36m | G
 # Bright Grey    | \033[0;37m | h
 # White          | \033[1;37m | H
+
+parse_git_branch() {
+  __git_ps1 " [git:%s]"
+}
+
+# Send back the results from either rbenv or rvm
+parse_ruby_version() {
+  if command -v rbenv &> /dev/null ; then
+    echo " [$(rbenv version-name)]"
+  else
+    local rvm_version=$( ~/.rvm/bin/rvm-prompt i v )
+    local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
+    [ "$gemset" != "" ] && gemset="@$gemset"
+    [ "$rvm_version" != "" ] && echo " {$rvm_version$gemset}"
+  fi
+}
+
+settitle() {
+  echo -n -e "\033]0;$*\007"
+}
+
+export GIT_PS1_SHOWDIRTYSTATE='true'
+export PS1="\[\033[35m\][\h\[\033[00m\]\[\033[35m\]] \[\033[34m\]\W\[\033[32m\]\$(parse_ruby_version)\[\033[31m\]\$(parse_git_branch)\[\033[00m\] \[\033[0m\]"
 

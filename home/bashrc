@@ -3,16 +3,15 @@ if command -v rbenv &> /dev/null ; then
   eval "$(rbenv init -)"
 fi
 
-if [[ -f ~/.bash/paths ]]; then source ~/.bash/path ; fi
-if [[ -f ~/.bash/colors ]]; then source ~/.bash/colors ; fi
-if [[ -f ~/.bash/prompt ]]; then source ~/.bash/prompt ; fi
-if [[ -f ~/.bash/aliases ]]; then source ~/.bash/aliases ; fi
-if [[ -f ~/.bash/completions ]]; then source ~/.bash/completions ; fi
-if [[ -f ~/.bashrc_local ]]; then source ~/.bashrc_local ; fi
-
+# Environment pathing and editor defaults
+# TODO: Can PATH variable be cleaned up?
+export PATH="$HOME/local/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/Developer/Tools:$PATH"
+export EDITOR="vim"
+export ARCHFLAGS="-arch i386 -arch x86_64"
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=10000
 export HISTSIZE=10000
+export HTML_TIDY="$HOME/.tidyrc"
 unset MAILCHECK
 
 # Add some color to man pages
@@ -22,6 +21,12 @@ export LESS_TERMCAP_md="$(tput setaf 4)"
 shopt -s histappend
 shopt -s nocaseglob
 shopt -s cdspell
+
+
+if [[ -f ~/.bash_prompt ]]; then source ~/.bash_prompt; fi
+if [[ -f ~/.bash_aliases ]]; then source ~/.bash_aliases; fi
+if [[ -f ~/.bash_completions ]]; then source ~/.bash_completions; fi
+if [[ -f ~/.bashrc_local ]]; then source ~/.bashrc_local; fi
 
 echo -e "\033[0;35m------------------------------------------\033[0m"
 

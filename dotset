@@ -13,7 +13,6 @@ install() {
   backup
   printf "%sInstalling:\n"
   install_dots
-  install_directory bash
   install_directory bin
   printf "%s\nThanks for flying dotset!\n"
 }
@@ -41,10 +40,8 @@ uninstall() {
   fi
   printf "%sUninstalling:\n"
   uninstall_dots
-  uninstall_directory bash
   uninstall_directory bin
   restore_dots
-  restore_directory bash
   restore_directory bin
   rm -rf $CWD/backup
 }
@@ -57,7 +54,6 @@ backup() {
     printf "%sCreating backup:\n"
     mkdir -p $CWD/backup
     backup_dots
-    backup_directory bash
     backup_directory bin
   fi
 }

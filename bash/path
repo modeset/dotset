@@ -1,9 +1,0 @@
-
-# Environment pathing and editor defaults
-export PATH="$HOME/local/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/Developer/Tools:$PATH"
-export EDITOR="vim"
-export ARCHFLAGS="-arch i386 -arch x86_64"
-export HTML_TIDY="$HOME/.tidyrc"
-
-# TODO: Can PATH variable be cleaned up?
-

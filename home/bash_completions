@@ -3,6 +3,7 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
  . `brew --prefix`/etc/bash_completion
 fi
 
+# Add completions for the `yo` program
 _yo() {
   COMPREPLY=()
   local cur="${COMP_WORDS[COMP_CWORD]}"
@@ -11,14 +12,10 @@ _yo() {
 }
 complete -F _yo yo
 
-###-begin-npm-completion-###
-#
 # npm command completion script
 #
 # Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
 # Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
-
 COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
 COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
 export COMP_WORDBREAKS
