@@ -3,6 +3,15 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
  . `brew --prefix`/etc/bash_completion
 fi
 
+_yo() {
+  COMPREPLY=()
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local opts="google github dochub rubydoc jquery wiki help"
+  COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+}
+complete -F _yo yo
+
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
