@@ -1,1 +1,7 @@
 backup/
+bundles.user.txt
+.DS_Store
+*.swp
+.VimballRecord
+.netrwhist
+tags
