@@ -1,0 +1,79 @@
+
+mscheat.txt* Settings and various information for the Mode Set configuration
+
+Author: Mode Set
+
+==============================================================================
+Mode Set Cheat                          *mscheat*
+
+1. Introduction                         |mscheat-intro|
+2. Key Mapping                          |mscheat-key-mappings|
+3. Leader Mapping                       |mscheat-leader-mappings|
+4. Command Mapping                      |mscheat-command-mappings|
+==============================================================================
+1. Introduction                         *mscheat-intro*
+
+Listed below are key and leader mappings setup within the .vimrc file. Check 
+out the installed plug-in help docs as they setup their own bindings as well.
+==============================================================================
+2. Key Mapping                          *mscheat-key-mappings*
+
+Normal Mode:
+  j             => move down
+  k             => move up
+  <c-h>         => move to split left
+  <c-l>         => move to split right
+  <c-k>         => move to split top
+  <c-l>         => move to split bottom
+  <tab>         => move between blocks (visual and normal modes)
+  \             => clear search highlight
+  gV            => Visually select the text that was last edited/pasted
+
+Insert Mode:
+  jj            => <ESC>
+  <tab>         => supertab forward / snippets complete
+  <s-tab>       => supertab backward
+
+Function Keys:
+  <F1>          => toggle CtrlP
+  <F2>          => toggle NerdTree
+  <F3>          => toggle Buffergator
+  <F4>          => toggle Tagbar
+  <F5>          => toggle Yankring
+  <F6>          => show file type snippets (insert mode only)
+  <F7>          => reserved for .vimrc
+  <F8>          => reserved for .vimrc.user
+  <F9>          => reserved for .vimrc.user
+  <F10>         => reserved for .vimrc.user
+  <F11>         => bubble line(s) down
+  <F12>         => bubble line(s) up
+==============================================================================
+3. Leader Mapping                       *mscheat-leader-mappings*
+
+The leader key is mapped to comma ",". Always in normal mode.
+
+Global:
+  <leader>f     => ack search
+  <leader>evm   => edit .vimrc
+  <leader>evu   => edit .vimrc.user
+  <leader>CN    => collapse multi-line whitespace to one line
+  <leader>CW    => clean empty whitespace (when [\s] is in status line)
+  <leader>rt    => reload ctags
+  <leader>lc    => close syntastic's location list
+  <leader>y     => in visual mode yank the contents to register "x"
+  <leader>p     => paste the contents of named register "x"
+
+CoffeeScript:
+  <leader>b     => Print selected to JavaScript in scratch buffer
+  <leader>d     => Run selected text in scratch buffer (uses node)
+==============================================================================
+4. Command Mapping                      *mscheat-command-mappings*
+
+Shortcuts while in command mode.
+
+  w!!           => Write to a file using sudo (prompts for pw)
+  <ctrl-p>      => Inserts the path of the current file from command mode
+
+====================================================================
+vim:tw=78:ts=8:ft=help:norl:
+

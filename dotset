@@ -14,8 +14,15 @@ install() {
   printf "%sInstalling:\n"
   install_dots
   install_directory bin
+  install_pathogen
+  install_bundles
+  install_vimfiles colors .vim
+  install_vimfiles doc .txt
+  install_vimfiles snippets .snippets
+  install_vimtmps
   printf "%s\nThanks for flying dotset!\n"
 }
+
 
 #/ update       Removes existing setup and installs fresh from git
 update() {
@@ -41,8 +48,10 @@ uninstall() {
   printf "%sUninstalling:\n"
   uninstall_dots
   uninstall_directory bin
+  uninstall_directory vim
   restore_dots
   restore_directory bin
+  restore_directory vim
   rm -rf $CWD/backup
 }
 
@@ -55,6 +64,7 @@ backup() {
     mkdir -p $CWD/backup
     backup_dots
     backup_directory bin
+    backup_directory vim
   fi
 }
 
@@ -97,6 +107,55 @@ install_dots() {
 install_directory() {
   printf "%2slinking $1/ directory.\n"
   ln -sf $CWD/$1 $HOME/.$1
+}
+
+# Updates the pathogen bundle
+install_pathogen() {
+  printf "%sInstalling pathogen:\n"
+  mkdir -p $HOME/.vim/autoload
+  curl -o $HOME/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
+}
+
+# Clone the bundle repositories into the `.vim/bundle` directory
+install_bundles() {
+  printf "%sInstalling bundles:\n"
+  mkdir -p $HOME/.vim/bundle
+  local bundles=$(get_bundle_list)
+  cd $HOME/.vim/bundle/
+  for repo in $bundles; do
+    git clone $repo
+  done
+  cd $CWD
+}
+
+# Grab the global bundles and user bundles if they exist
+get_bundle_list() {
+  if [[ -f $CWD/bundles.user.txt ]]; then
+    local bundles=$(cat $CWD/bundles.txt $CWD/bundles.user.txt)
+  else
+    local bundles=$(cat $CWD/bundles.txt)
+  fi
+  echo $bundles
+}
+
+# Symlink all of the files within a directory($1) based on filetype($2)
+install_vimfiles() {
+  printf "%sLinking $1:"
+  mkdir -p $HOME/.vim/$1
+  for file in `find $CWD/vim/$1 -maxdepth 1 -iname "*$2"`; do
+    ln -sf "$file" "$HOME/.vim/$1/"`basename $file`
+    printf "%s."
+  done
+  printf "%s done.\n"
+}
+
+# Create temporary directories for vim and plugin storage
+install_vimtmps() {
+  printf "%sCreating .vim/tmp directories:..."
+  mkdir -p $HOME/.vim/tmp/swap
+  mkdir -p $HOME/.vim/tmp/yankring
+  mkdir -p $HOME/.vim/tmp/ctrlp
+  printf "%s done.\n"
 }
 
 uninstall_dots() {
