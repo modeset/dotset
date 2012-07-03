@@ -1,0 +1,5 @@
+
+" User plugin configurations
+let g:snips_author = 'Your Name'
+colorscheme polarized
+
