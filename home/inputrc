@@ -1,0 +1,21 @@
+
+# http://ss64.com/bash/syntax-inputrc.html
+set expand-tilde off
+set history-preserve-point on
+set mark-symlinked-directories on
+set skip-completed-text on
+set match-hidden-files off
+set skip-completed-text on
+
+set page-completions off
+set completion-query-items 1000
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set completion-prefix-display-length 10
+
+set editing-mode vi
+
+C-n: history-search-forward
+C-p: history-search-backward
+

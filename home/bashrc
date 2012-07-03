@@ -10,13 +10,18 @@ if [[ -f ~/.bash/aliases ]]; then source ~/.bash/aliases ; fi
 if [[ -f ~/.bash/completions ]]; then source ~/.bash/completions ; fi
 if [[ -f ~/.bashrc_local ]]; then source ~/.bashrc_local ; fi
 
-# TODO: should these be moved, look at other options
 export HISTCONTROL=ignoreboth
-export HISTSIZE=500
+export HISTFILESIZE=10000
+export HISTSIZE=10000
 unset MAILCHECK
-set completion-ignore-case on
 
+# Add some color to man pages
+export LESS_TERMCAP_md="$(tput setaf 4)"
+
+# http://ss64.com/bash/shopt.html
+shopt -s histappend
+shopt -s nocaseglob
 shopt -s cdspell
-set -o vi
 
 echo -e "\033[0;35m------------------------------------------\033[0m"
+
