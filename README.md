@@ -1,4 +1,3 @@
-dots
-====
+# dotset
 
-The dot files
+The dot files, a WIP.
