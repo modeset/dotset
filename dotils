@@ -1,0 +1,108 @@
+#!/bin/bash
+
+set -e
+ARGS=(regem osx help)
+CWD=`pwd`
+
+
+## Public API
+# -----------------------------------------------------------------------------
+
+#/ regem        Reinstalls global gems and macvim after a ruby upgrade (rbenv)
+regem() {
+  if [[ -f $CWD/gems.user.txt ]]; then
+    local gems=$(cat $CWD/gems.txt $CWD/gems.user.txt)
+  else
+    local gems=$(cat $CWD/gems.txt)
+  fi
+  rbenv rehash
+  for gem in $gems; do
+    gem install $gem --no-ri --no-rdoc
+  done
+  rbenv rehash
+  brew upgrade
+  brew uninstall macvim
+  brew install macvim
+  rbenv rehash
+}
+
+#/ osx          Sets reasonable OS X defaults for a new system [http://mths.be/osx], take a look before running.
+osx() {
+  # Show the ~/Library folder
+  chflags nohidden ~/Library
+
+  # Expand save panel by default
+  defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+  # Expand print panel by default
+  defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+  # Disable shadow in screenshots
+  defaults write com.apple.screencapture disable-shadow -bool true
+
+  # Finder: allow text selection in Quick Look
+  defaults write com.apple.finder QLEnableTextSelection -bool true
+
+  # Avoid creating .DS_Store files on network volumes
+  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+  # Show indicator lights for open applications in the Dock
+  defaults write com.apple.dock show-process-indicators -bool true
+
+  # Make Dock icons of hidden applications translucent
+  defaults write com.apple.dock showhidden -bool true
+
+  # Enable Safari’s debug menu
+  defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+  # Add a context menu item for showing the Web Inspector in web views
+  defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+  # Disable press-and-hold for keys in favor of key repeat
+  # defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+  # Enable AirDrop over Ethernet and on unsupported Macs running Lion
+  # defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
+  # Always open everything in Finder's list view.
+  # defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+
+  echo "Done. Note that some of these changes require a logout/restart to take effect."
+}
+
+
+#/ help         Print this message
+help() {
+  cat<<EOF
+Usage: ./$(basename "$0") [${ARGS[@]}]
+
+Commands:
+$(print_usage)
+
+- Mode Set thinks you're sexy.
+EOF
+}
+
+# Get usage from the public api comments starting with `#/`
+print_usage() {
+  cat $(basename "$0") | grep '^#\/' | sed "s/#\///g" | while read line; do
+    printf "%2s$line\n"
+  done
+}
+
+# See if a valid argument is passed and call it...
+if [[ $1 != "" ]]; then
+  for fn in "${ARGS[@]}"; do
+    if [[ "$fn" == $1 ]]; then
+      initialize
+      $fn
+      exit 0
+    fi
+  done
+fi
+
+# ...otherwise barf out a help warning
+printf "%sNot sure what to do here so calling for help!\n\n"
+help
+exit 0
+

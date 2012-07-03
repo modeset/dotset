@@ -1,0 +1,10 @@
+rbenv-rehash
+bundler
+CoffeeTags
+gemcutter
+heroku
+mustache
+powder
+rack
+redcarpet
+sass
