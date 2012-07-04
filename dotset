@@ -8,7 +8,7 @@ CWD=`pwd`
 ## Public API
 # -----------------------------------------------------------------------------
 
-#/ install      Installs from a config file and symlinks core file settings
+#/ install      Installs dotfiles, vimfiles, and various executables
 install() {
   backup
   printf "%sInstalling:\n"
