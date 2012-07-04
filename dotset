@@ -129,10 +129,10 @@ install_bundles() {
 
 # Grab the global bundles and user bundles if they exist
 get_bundle_list() {
-  if [[ -f $CWD/bundles.user.txt ]]; then
-    local bundles=$(cat $CWD/bundles.txt $CWD/bundles.user.txt)
+  if [[ -f $CWD/config/bundles.user.txt ]]; then
+    local bundles=$(cat $CWD/config/bundles.txt $CWD/config/bundles.user.txt)
   else
-    local bundles=$(cat $CWD/bundles.txt)
+    local bundles=$(cat $CWD/config/bundles.txt)
   fi
   echo $bundles
 }
