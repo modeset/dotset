@@ -8,3 +8,4 @@ powder
 rack
 redcarpet
 sass
+pry
