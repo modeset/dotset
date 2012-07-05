@@ -209,6 +209,7 @@ Mode Set configuration.
 - Add quick update (doesn't pull latest bundles)
 - Add function completion for `dotset` and `dotils` script
 - noob setting (auto install required gems, brews, npm modules, etc..)
+- Refactor the `dotset` script
 
 ### Bash
 
@@ -216,7 +217,6 @@ Mode Set configuration.
 - Cleanup the `$PATH` variable
 - Configure `.pow`
 - Configure `pryrc` - colors should match Vim
-- Refactor the `dotset` script
 
 ### Vim
 
