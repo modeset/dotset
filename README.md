@@ -227,7 +227,7 @@ Mode Set configuration.
 
 <!-- link ids -->
 [ack]: http://betterthangrep.com/
-[bundles.txt]: https://github.com/modeset/dotset/blob/master/vimfiles
+[bundles.txt]: https://github.com/modeset/dotset/blob/master/config/bundles.txt
 [coffeetags]: https://github.com/lukaszkorecki/CoffeeTags
 [ctags]: http://ctags.sourceforge.net/
 [discount]: http://www.pell.portland.or.us/~orc/Code/discount/
