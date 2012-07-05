@@ -170,9 +170,10 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " Find the goods, ack style
 map <leader>f :Ack!
 
-" Edit .vimrc and .vimrc.local
+" Edit .vimrc, .vimrc.local and .bashrc_local
 nmap <leader>evm <C-w><C-v><C-l>:e ~/.vimrc<cr>
 nmap <leader>evl <C-w><C-v><C-l>:e ~/.vimrc.local<cr>
+nmap <leader>ebl <C-w><C-v><C-l>:e ~/.bashrc_local<cr>
 
 " Collapse all multi-line occurrences of whitespace into one line
 map <leader>CN :%s/^\n\+/\r//<cr>:let @/=''<cr>

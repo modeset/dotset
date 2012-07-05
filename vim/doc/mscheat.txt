@@ -54,8 +54,9 @@ The leader key is mapped to comma ",". Always in normal mode.
 
 Global:
   <leader>f     => ack search
-  <leader>evm   => edit .vimrc
-  <leader>evu   => edit .vimrc.user
+  <leader>evm   => edit ~/.vimrc
+  <leader>evl   => edit ~/.vimrc.local
+  <leader>ebl   => edit ~/.bashrc_local
   <leader>CN    => collapse multi-line whitespace to one line
   <leader>CW    => clean empty whitespace (when [\s] is in status line)
   <leader>rt    => reload ctags
