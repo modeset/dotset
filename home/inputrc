@@ -9,8 +9,6 @@ set match-hidden-files off
 set page-completions off
 set completion-query-items 1000
 set completion-ignore-case on
-set show-all-if-ambiguous off
-set show-all-if-unmodified off
 set completion-prefix-display-length 10
 
 set editing-mode vi
@@ -18,3 +16,6 @@ set editing-mode vi
 C-n: history-search-forward
 C-p: history-search-backward
 
+# For immediate completion feedback rock these
+# set show-all-if-ambiguous on
+# set show-all-if-unmodified on
