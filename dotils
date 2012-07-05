@@ -10,8 +10,8 @@ CWD=`pwd`
 
 #/ regem        Reinstalls global gems and macvim after a ruby upgrade (rbenv)
 regem() {
-  if [[ -f $CWD/config/gems.user.txt ]]; then
-    local gems=$(cat $CWD/config/gems.txt $CWD/config/gems.user.txt)
+  if [[ -f $CWD/config/gems.local.txt ]]; then
+    local gems=$(cat $CWD/config/gems.txt $CWD/config/gems.local.txt)
   else
     local gems=$(cat $CWD/config/gems.txt)
   fi

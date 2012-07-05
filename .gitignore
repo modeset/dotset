@@ -1,5 +1,6 @@
 backup/
-bundles.user.txt
+config/bundles.local.txt
+config/gems.local.txt
 .DS_Store
 *.swp
 .VimballRecord
