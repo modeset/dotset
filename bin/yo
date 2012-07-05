@@ -1,7 +1,13 @@
 #!/bin/bash
 
 set -e
-ARGS=(google github dochub rubydoc jquery wiki help)
+ARGS=(go google github dochub rubydoc jquery wiki help)
+
+#/ go           Go to the url
+#\ yo go modeset.com
+go() {
+  open "http://www.${ARGV[*]}"
+}
 
 #/ google       Open up the results of a Google search
 #\ yo google ron burgundy
