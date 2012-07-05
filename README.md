@@ -1,5 +1,6 @@
-# dotset
 ![mode set](https://secure.gravatar.com/avatar/aa8ea677b07f626479fd280049b0e19f?s=48 "mode set")
+
+# dotset
 
 The default configuration files for Bash and Vim used at [Mode
 Set][modeset]. Tuned to play with Apple's Terminal.app.

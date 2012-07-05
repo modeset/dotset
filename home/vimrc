@@ -143,7 +143,7 @@ nmap gV `[v`]
 " Clear the search highlight
 map <silent> \ :silent nohlsearch<cr>
 
-" Function keys for plugin lists, <F8>-<F10> is reserved for .vimrc.user
+" Function keys for plugin lists, <F8>-<F10> is reserved for .vimrc.local
 let g:ctrlp_map='<F1>'
 map <F2> :NERDTreeToggle<cr>
 map <F3> :BuffergatorToggle<cr>
@@ -170,9 +170,9 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " Find the goods, ack style
 map <leader>f :Ack!
 
-" Edit .vimrc and .vimrc.user
+" Edit .vimrc and .vimrc.local
 nmap <leader>evm <C-w><C-v><C-l>:e ~/.vimrc<cr>
-nmap <leader>evu <C-w><C-v><C-l>:e ~/.vimrc.user<cr>
+nmap <leader>evl <C-w><C-v><C-l>:e ~/.vimrc.local<cr>
 
 " Collapse all multi-line occurrences of whitespace into one line
 map <leader>CN :%s/^\n\+/\r//<cr>:let @/=''<cr>
@@ -222,9 +222,9 @@ if !exists("autocommands_loaded")
   au BufRead,BufNewFile *.txt call s:setWrapping()
   au BufRead,BufNewFile *.coffee call s:setCoffee()
 
-  " Reload .vimrc after it or vimrc.user been saved
+  " Reload .vimrc after it or vimrc.local has been saved
   au! BufWritePost .vimrc source %
-  au! BufWritePost .vimrc.user source ~/.vimrc
+  au! BufWritePost .vimrc.local source ~/.vimrc
 
   " Reload all snippets when creating new ones.
   au! BufWritePost *.snippets call ReloadAllSnippets()
@@ -241,7 +241,7 @@ colorscheme colorblind
 
 " Load user config
 " -----------------------------------------------------------------------------
-if filereadable(expand("~/.vimrc.user"))
-  source ~/.vimrc.user
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
 endif
 
