@@ -210,6 +210,7 @@ Mode Set configuration.
 - Add function completion for `dotset` and `dotils` script
 - noob setting (auto install required gems, brews, npm modules, etc..)
 - Refactor the `dotset` script
+- Add a system update command (weekly task)
 
 ### Bash
 
