@@ -6,8 +6,7 @@ The default configuration files for Bash and Vim used at [Mode
 Set][modeset]. Tuned to play with Apple's Terminal.app.
 
 Installing and updating is handled by the [`./dotset`][dotset] script.
-
-The scripts are inspired by [quick-vim][quick-vim].
+Utility functions are provided by the [`./dotils`][dotils] script.
 
 **Version: v1.0**
 
@@ -23,7 +22,7 @@ Get this party started:
     Usage: ./dotset [install update uninstall backup help]
 
     Commands:
-      install      Installs dotfiles, vimfiles, and various executables
+      install      Installs dot files, vim files, and various executables
       update       Removes existing setup and installs fresh from git
       uninstall    Restores original dot files (or latest backup)
       backup       Backup the existing dot files from the ~/ directory
@@ -37,8 +36,8 @@ Installing dotset works based on the following directory structure:
   symlinked_
 - **config**: Support assets for building out the dot files _Used only
   for configuration_
-  - `bundles.txt`: the list of default vim bundles to install
-  - `bundles.local.txt`: the list of user vim bundles to install
+  - `bundles.txt`: the list of default Vim bundles to install
+  - `bundles.local.txt`: the list of user Vim bundles to install
     (_gitignored_)
   - `gems.txt`: the list of default gems to install when running
   `./dotils regem`
@@ -55,19 +54,19 @@ Installing dotset works based on the following directory structure:
 ### Update
 
 It's recommended to run `./dotset update` once a week. While the
-repository might not change very often, most vim plugins are updated
+repository might not change very often, most Vim plugins are updated
 quite frequently.
 
 The update script will temporarily `uninstall` all of the dot files in
 the `~/` directory which were created by dotset in the first place,
 pull down the latest dotset updates and reinstall everything fresh. It's
-important to note this as anything you create within `~/.bin/`, `~/.vim/`
+important to note this, as anything you create within `~/.bin/`, `~/.vim/`
 that is not connected to this repository will be completely blown away.
 
 ### Backup
 
 Dotset creates a backup of any files it may be overriding. It only
-creates a new backup when the `./backup/` directory **does not** exist. If
+creates a new backup when the `./backup/` directory **DOES NOT** exist. If
 you want to generate a new backup, just delete the `./backup` directory
 and run a new `install` or just call `./dotset backup`.
 
@@ -105,7 +104,7 @@ alternative color `polarized` as the default, add the following in your
 
 ### Rock a sweet Bash setup
 
-The Bash setup if fairly bare bones out of the box. To override or add
+The Bash setup is fairly bare bones out of the box. To override or add
 any additional settings create the `.bashrc_local` file and add
 any customization.
 
@@ -116,10 +115,10 @@ The default Bash settings support both [rbenv][rbenv] and [rvm][rvm] environment
 We roll a custom installation of Vim over the default Mac installation.
 Within the `~/.bash_aliases` file is an alias to [homebrew's][homebrew]
 installation for the Vim executable. This executable is installed with
-ruby, python, and various other enhancements. To override this, put this
-in your `~/bashrc_local` file:
+ruby, python, and various other enhancements. To override this setting,
+put this in your `~/bashrc_local` file:
 
-      alias vim=vi
+      alias vim="vi"
 
 The default configuration comes with various [language and tooling
 plugins][bundles.txt]. To add additional plugins, create the file
@@ -147,15 +146,14 @@ following:
 - [coffeetags][coffeetags] - `gem install coffeetags`
 - [ctags][ctags] - `brew install ctags`
 - [discount][discount] - `brew install discount`
-- [hub][hub] - `brew install hub` _Note this is required!_
+- [hub][hub] - `brew install hub` _**Note this is required!**_
 - [jshint][jshint] - `npm install jshint -g`
 - [jsonhint][jsonhint] - `npm install jsonlint -g`
 - [macvim][macvim] - `brew install macvim`
 - [node][node] - `brew install node`
 - [pow][pow] - `curl get.pow.cx | sh`
 - [pry][pry] - `gem install pry`
-- [rbenv][rbenv] - `brew install rbenv` or [rvm][rvm] - `curl -L
-  https://get.rvm.io | bash -s stable --ruby`
+- [rbenv][rbenv] - `brew install rbenv` or use [rvm][rvm]
 
 ## dotils
 
@@ -206,15 +204,15 @@ Mode Set configuration.
 
 ### Install script
 
+- Add a system update command (weekly task)
 - Add quick update (doesn't pull latest bundles)
 - Add function completion for `dotset` and `dotils` script
 - noob setting (auto install required gems, brews, npm modules, etc..)
-- Refactor the `dotset` script
-- Add a system update command (weekly task)
+- Refactor the `dotset` script (could be a little simpler)
 
 ### Bash
 
-- Research more prompts for ssh
+- Prompts for ssh
 - Cleanup the `$PATH` variable
 - Configure `.pow`
 - Configure `pryrc` - colors should match Vim
@@ -235,6 +233,7 @@ Mode Set configuration.
 [discount]: http://www.pell.portland.or.us/~orc/Code/discount/
 [deprecated]: https://gist.github.com/3018885
 [dotset]: https://github.com/modeset/dotset/blob/master/dotset
+[dotils]: https://github.com/modeset/dotset/blob/master/dotils
 [font]: https://github.com/andreberg/Meslo-Font
 [homebrew]: http://mxcl.github.com/homebrew/
 [hub]: http://defunkt.io/hub/
@@ -246,7 +245,6 @@ Mode Set configuration.
 [node]: http://nodejs.org/
 [pow]: http://pow.cx/
 [pry]: http://pry.github.com/
-[quick-vim]: https://github.com/brianleroux/quick-vim
 [rbenv]: https://github.com/sstephenson/rbenv
 [rvm]: https://rvm.io/
 [simbl]: http://www.culater.net/software/SIMBL/SIMBL.php
