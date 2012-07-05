@@ -5,7 +5,6 @@ set history-preserve-point on
 set mark-symlinked-directories on
 set skip-completed-text on
 set match-hidden-files off
-set skip-completed-text on
 
 set page-completions off
 set completion-query-items 1000
