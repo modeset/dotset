@@ -150,6 +150,10 @@ Place this file in your `~/` directory and backup accordingly.
 We've created a [list of plugins][deprecated] we've run in the past or
 that might be useful for your particular environment.
 
+_Note: All settings are tuned to work within a Terminal. This means
+there are no `gui` settings, including the color themes. We only sport
+Vim in Apple's Terminal. Keepin' it minimal._
+
 ### External dependencies
 
 To take advantage of certain Bash and Vim settings, install the
@@ -232,8 +236,6 @@ Mode Set configuration.
 
 ### Vim
 
-- Abstract the color themes based on how Solarized works
-- Add a color theme for lighter modes
 - Get tagbar to work with css/sass files
 - Pure out the snippets
 - Possibly bring back the [clang complete][clang] plugin
