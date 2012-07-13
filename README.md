@@ -237,7 +237,6 @@ Mode Set configuration.
 ### Vim
 
 - Get tagbar to work with css/sass files
-- Pure out the snippets
 - Possibly bring back the [clang complete][clang] plugin
 
 <!-- link ids -->
