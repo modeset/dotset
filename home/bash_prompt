@@ -40,7 +40,7 @@ export LSCOLORS=excxgxfxbxdxbxbxbxexex
 # White          | \033[1;37m | H
 
 parse_git_branch() {
-  __git_ps1 " [git:%s]"
+  __git_ps1 " [%s]"
 }
 
 # Send back the results from either rbenv or rvm
