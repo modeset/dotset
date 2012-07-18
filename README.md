@@ -159,18 +159,21 @@ Vim in Apple's Terminal. Keepin' it minimal._
 To take advantage of certain Bash and Vim settings, install the
 following:
 
-- [ack][ack] - `brew install ack`
-- [coffeetags][coffeetags] - `gem install coffeetags`
-- [ctags][ctags] - `brew install ctags`
-- [discount][discount] - `brew install discount`
-- [hub][hub] - `brew install hub` _**Note this is required!**_
-- [jshint][jshint] - `npm install jshint -g`
-- [jsonhint][jsonhint] - `npm install jsonlint -g`
-- [macvim][macvim] - `brew install macvim`
-- [node][node] - `brew install node`
-- [pow][pow] - `curl get.pow.cx | sh`
-- [pry][pry] - `gem install pry`
-- [rbenv][rbenv] - `brew install rbenv` or use [rvm][rvm]
+Program                  | Installation
+-------------------------|----------------------------------------------
+[ack][ack]               | `brew install ack`
+[ctags][ctags]           | `brew install ctags`
+[hub][hub]               | `brew install hub` _**Note this is required!**_
+[macvim][macvim]         | `brew install macvim`
+[node][node]             | `brew install node`
+[rbenv][rbenv]           | `brew install rbenv` or use [rvm][rvm]
+[pow][pow]               | <code>curl get.pow.cx | sh</code>
+[coffeetags][coffeetags] | `gem install coffeetags`
+[red carpet][redcarpet]  | `gem install redcarpet`
+[pry][pry]               | `gem install pry`
+[jshint][jshint]         | `npm install jshint -g`
+[jsonhint][jsonhint]     | `npm install jsonlint -g`
+
 
 ## dotils
 
@@ -223,8 +226,6 @@ Mode Set configuration.
 
 - Add a system update command (weekly task)
 - Add quick update (doesn't pull latest bundles)
-- Add function completion for `dotset` and `dotils` script
-- noob setting (auto install required gems, brews, npm modules, etc..)
 - Refactor the `dotset` script (could be a little simpler)
 
 ### Bash
@@ -244,7 +245,7 @@ Mode Set configuration.
 [bundles.txt]: https://github.com/modeset/dotset/blob/master/config/bundles.txt
 [coffeetags]: https://github.com/lukaszkorecki/CoffeeTags
 [ctags]: http://ctags.sourceforge.net/
-[discount]: http://www.pell.portland.or.us/~orc/Code/discount/
+[redcarpet]: https://github.com/tanoku/redcarpet/
 [deprecated]: https://gist.github.com/3018885
 [dotset]: https://github.com/modeset/dotset/blob/master/dotset
 [dotils]: https://github.com/modeset/dotset/blob/master/dotils
