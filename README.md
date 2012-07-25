@@ -1,5 +1,7 @@
 ![mode set](https://secure.gravatar.com/avatar/aa8ea677b07f626479fd280049b0e19f?s=48 "mode set")
 
+We &hearts; the Vim.
+
 # dotset
 
 The default configuration files for Bash and Vim used at [Mode
