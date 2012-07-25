@@ -45,14 +45,7 @@ parse_git_branch() {
 
 # Send back the results from either rbenv or rvm
 parse_ruby_version() {
-  if command -v rbenv &> /dev/null ; then
-    echo " [$(rbenv version-name)]"
-  else
-    local rvm_version=$( ~/.rvm/bin/rvm-prompt i v )
-    local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
-    [ "$gemset" != "" ] && gemset="@$gemset"
-    [ "$rvm_version" != "" ] && echo " {$rvm_version$gemset}"
-  fi
+  echo " [$(rbenv version-name)]"
 }
 
 settitle() {

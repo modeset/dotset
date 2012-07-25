@@ -123,7 +123,7 @@ set:
 Since the `.gitconfig` file does not contain any user info, these are
 required to identify who you are. 
 
-The default Bash settings support both [rbenv][rbenv] and [rvm][rvm] environments.
+The default Bash settings support the [rbenv][rbenv] environment.
 
 ### Pimp your Vim ride
 
@@ -168,7 +168,7 @@ Program                  | Installation
 [hub][hub]               | `brew install hub` _**Note this is required!**_
 [macvim][macvim]         | `brew install macvim`
 [node][node]             | `brew install node`
-[rbenv][rbenv]           | `brew install rbenv` or use [rvm][rvm]
+[rbenv][rbenv]           | `brew install rbenv`
 [pow][pow]               | <code>curl get.pow.cx | sh</code>
 [coffeetags][coffeetags] | `gem install coffeetags`
 [red carpet][redcarpet]  | `gem install redcarpet`
@@ -263,7 +263,6 @@ Mode Set configuration.
 [pow]: http://pow.cx/
 [pry]: http://pry.github.com/
 [rbenv]: https://github.com/sstephenson/rbenv
-[rvm]: https://rvm.io/
 [simbl]: http://www.culater.net/software/SIMBL/SIMBL.php
 
 [clang]: https://github.com/Rip-Rip/clang_complete

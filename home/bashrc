@@ -1,7 +1,5 @@
 
-if command -v rbenv &> /dev/null ; then
-  eval "$(rbenv init -)"
-fi
+eval "$(rbenv init -)"
 
 # Environment pathing and editor defaults
 # TODO: Can PATH variable be cleaned up?
