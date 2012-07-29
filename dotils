@@ -94,7 +94,6 @@ print_usage() {
 if [[ $1 != "" ]]; then
   for fn in "${ARGS[@]}"; do
     if [[ "$fn" == $1 ]]; then
-      initialize
       $fn
       exit 0
     fi
