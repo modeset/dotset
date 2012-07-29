@@ -236,6 +236,8 @@ Mode Set configuration.
 - Cleanup the `$PATH` variable
 - Configure `.pow`
 - Configure `pryrc` - colors should match Vim
+- Ignore directories when using ack (sassc, other standard vim
+  ignores)
 
 ### Vim
 
