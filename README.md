@@ -45,11 +45,11 @@ Installing dotset works based on the following directory structure:
   `./dotils regem`
   - `gems.local.txt`: the list of user gems to install when running
   `./dotils regem` (_gitignored_)
-- **extras**: Terminal themes and templates. _Nothing installed,
-  manually install these_
-- **home**: Various `rc` type files for Bash, Vim, and System settings.
+- **dots**: Various `rc` type files for Bash, Vim, and System settings.
   _All files are symlinked to `~/` direcectory with a dot (`.`) in
   front of them_
+- **extras**: Terminal themes and templates. _Nothing installed,
+  manually install these_
 - **vim**: Directories of files that are symlinked into `~/.vim/`.
   _Only files are symlinked and not entire directories_
 
