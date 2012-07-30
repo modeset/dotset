@@ -52,11 +52,23 @@ osx() {
   # Make Dock icons of hidden applications translucent
   defaults write com.apple.dock showhidden -bool true
 
-  # Enable Safari’s debug menu
-  defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+  # Enable the Develop menu and the Web Inspector in Safari
+  defaults write com.apple.Safari IncludeDevelopMenu -bool true
+  defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+  defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
+
+  # Disable send and reply animations in Mail.app
+  defaults write com.apple.Mail DisableReplyAnimations -bool true
+  defaults write com.apple.Mail DisableSendAnimations -bool true
+
+  # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
+  defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
   # Add a context menu item for showing the Web Inspector in web views
   defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+  # Display full POSIX path as Finder window title
+  defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
   # Disable press-and-hold for keys in favor of key repeat
   # defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
