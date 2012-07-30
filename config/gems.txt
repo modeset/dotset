@@ -1,9 +1,0 @@
-rbenv-rehash
-bundler
-CoffeeTags
-gemcutter
-heroku
-powder
-redcarpet
-sass
-pry
