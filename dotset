@@ -68,7 +68,7 @@ backup() {
   fi
 }
 
-#/ weekly      Runs a weekly update script to keep your machine pure
+#/ weekly       Runs a weekly update script to keep your machine pure
 weekly() {
   brew update
   brew outdated
