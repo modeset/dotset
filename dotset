@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-ARGS=(install update uninstall backup help)
+ARGS=(install update uninstall backup weekly help)
 CWD=`pwd`
 
 
@@ -66,6 +66,25 @@ backup() {
     backup_directory bin
     backup_directory vim
   fi
+}
+
+#/ weekly      Runs a weekly update script to keep your machine pure
+weekly() {
+  brew update
+  brew outdated
+  brew upgrade `brew outdated`
+  brew cleanup
+  brew prune
+  curl get.pow.cx | sh
+  gem update
+  gem cleanup
+  npm update npm -g
+  npm update -g
+  sudo softwareupdate -i -a -v
+  ./dotset update
+  printf "%s-----------------------------------------------------------------\n"
+  printf "%sRun any migrations and follow instructions from weekly update.\n"
+  printf "%s-----------------------------------------------------------------\n"
 }
 
 #/ help         Print this message
