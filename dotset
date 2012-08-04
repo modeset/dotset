@@ -70,17 +70,23 @@ backup() {
 
 #/ weekly       Runs a weekly update script to keep your machine pure
 weekly() {
+  printf "%sUpdating homebrew..\n"
   brew update
   brew outdated
   brew upgrade `brew outdated`
   brew cleanup
   brew prune
+  printf "%sUpdating pow..\n"
   curl get.pow.cx | sh
+  printf "%sUpdating gems..\n"
   gem update
   gem cleanup
+  printf "%sUpdating npm and global npm packages..\n"
   npm update npm -g
   npm update -g
+  printf "%sRunning software update..\n"
   sudo softwareupdate -i -a -v
+  printf "%sUpdating dotset..\n"
   ./dotset update
   printf "%s-----------------------------------------------------------------\n"
   printf "%sRun any migrations and follow instructions from weekly update.\n"
