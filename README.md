@@ -1,4 +1,4 @@
-![mode set](https://secure.gravatar.com/avatar/aa8ea677b07f626479fd280049b0e19f?s=48 "mode set")
+![mode set](https://secure.gravatar.com/avatar/aa8ea677b07f626479fd280049b0e19f?s=75 "mode set")
 
 We &hearts; the Vim.
 
@@ -226,7 +226,6 @@ Mode Set configuration.
 
 ### Install script
 
-- Add a system update command (weekly task)
 - Add quick update (doesn't pull latest bundles)
 - Refactor the `dotset` script (could be a little simpler)
 
