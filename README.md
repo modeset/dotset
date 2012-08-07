@@ -28,6 +28,7 @@ Get this party started:
       update       Removes existing setup and installs fresh from git
       uninstall    Restores original dot files (or latest backup)
       backup       Backup the existing dot files from the ~/ directory
+      weekly       Runs a weekly update script to keep your machine pure
       help         Print this message
 
 ### Install
@@ -78,6 +79,13 @@ Don't care about backups? Just create an empty `./backup/` directory.
 
 To remove files created by dotset and restore from the `./backup/`
 directory, run `./dotset uninstall`
+
+### Weekly
+
+Wrapper script for updating various packages including: homebrew, pow,
+gems, npm (including global npm packages), and software update. It will
+also call `./dotset update` to make sure you have the latest. Run this
+puppy once a week.
 
 ## Extras, but really just install these
 
@@ -130,10 +138,7 @@ The default Bash settings support the [rbenv][rbenv] environment.
 We roll a custom installation of Vim over the default Mac installation.
 Within the `~/.bash_aliases` file is an alias to [homebrew's][homebrew]
 installation for the Vim executable. This executable is installed with
-ruby, python, and various other enhancements. To override this setting,
-put this in your `~/bashrc_local` file:
-
-      alias vim="vi"
+ruby, python, and various other enhancements.
 
 The default configuration comes with various [language and tooling
 plugins][bundles.txt]. To add additional plugins, create the file
@@ -185,7 +190,6 @@ resetting up the machine.
       Usage: ./dotils [regem osx help]
 
       Commands:
-        regem        Reinstalls global gems and macvim after a ruby upgrade (rbenv)
         osx          Sets reasonable OS X defaults for a new system [http://mths.be/osx], take a look before running.
         help         Print this message
 
@@ -222,27 +226,6 @@ Within Vim type `:h mscheat` to view key and leader bindings for the
 Mode Set configuration.
 
 
-## Todo
-
-### Install script
-
-- Add quick update (doesn't pull latest bundles)
-- Refactor the `dotset` script (could be a little simpler)
-
-### Bash
-
-- Prompts for ssh
-- Cleanup the `$PATH` variable
-- Configure `.pow`
-- Configure `pryrc` - colors should match Vim
-- Ignore directories when using ack (sassc, other standard vim
-  ignores)
-
-### Vim
-
-- Get tagbar to work with css/sass files
-- Possibly bring back the [clang complete][clang] plugin
-
 <!-- link ids -->
 [ack]: http://betterthangrep.com/
 [bundles.txt]: https://github.com/modeset/dotset/blob/master/config/bundles.txt
@@ -265,6 +248,4 @@ Mode Set configuration.
 [pry]: http://pry.github.com/
 [rbenv]: https://github.com/sstephenson/rbenv
 [simbl]: http://www.culater.net/software/SIMBL/SIMBL.php
-
-[clang]: https://github.com/Rip-Rip/clang_complete
 
