@@ -70,6 +70,9 @@ backup() {
 
 #/ weekly       Runs a weekly update script to keep your machine pure
 weekly() {
+  printf "%sRunning software update..\n"
+  sudo softwareupdate -l
+  sudo softwareupdate -i -a
   printf "%sUpdating homebrew..\n"
   brew update
   brew outdated
@@ -84,8 +87,6 @@ weekly() {
   printf "%sUpdating npm and global npm packages..\n"
   npm update npm -g
   npm update -g
-  printf "%sRunning software update..\n"
-  sudo softwareupdate -i -a -v
   printf "%sUpdating dotset..\n"
   ./dotset update
   printf "%s-----------------------------------------------------------------\n"
