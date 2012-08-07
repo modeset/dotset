@@ -8,4 +8,6 @@ css=.sass,.scss
 --ignore-dir=tmp
 --ignore-dir=vendor
 --sort-files
+--color-filename=cyan
+--color-match=magenta
 -a
