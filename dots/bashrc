@@ -1,11 +1,9 @@
 
-if command -v rbenv &> /dev/null ; then
-  eval "$(rbenv init -)"
-fi
+eval "$(rbenv init -)"
 
 # Environment pathing and editor defaults
 # TODO: Can PATH variable be cleaned up?
-export PATH="$HOME/local/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/Developer/Tools:$PATH"
+export PATH="$HOME/local/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 export EDITOR="vim"
 export ARCHFLAGS="-arch i386 -arch x86_64"
 export HISTCONTROL=ignoreboth

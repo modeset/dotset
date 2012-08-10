@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-ARGS=(install update uninstall backup help)
+ARGS=(install update uninstall backup weekly help)
 CWD=`pwd`
 
 
@@ -68,6 +68,32 @@ backup() {
   fi
 }
 
+#/ weekly       Runs a weekly update script to keep your machine pure
+weekly() {
+  printf "%sRunning software update..\n"
+  sudo softwareupdate -l
+  sudo softwareupdate -i -a
+  printf "%sUpdating homebrew..\n"
+  brew update
+  brew outdated
+  brew upgrade `brew outdated`
+  brew cleanup
+  brew prune
+  printf "%sUpdating pow..\n"
+  curl get.pow.cx | sh
+  printf "%sUpdating gems..\n"
+  gem update
+  gem cleanup
+  printf "%sUpdating npm and global npm packages..\n"
+  npm update npm -g
+  npm update -g
+  printf "%sUpdating dotset..\n"
+  ./dotset update
+  printf "%s-----------------------------------------------------------------\n"
+  printf "%sRun any migrations and follow instructions from weekly update.\n"
+  printf "%s-----------------------------------------------------------------\n"
+}
+
 #/ help         Print this message
 help() {
   cat<<EOF
@@ -90,7 +116,7 @@ initialize() {
 # Symlink all of the files within a directory($1) based on filetype($2)
 get_dots() {
   local files=()
-  for file in `find $CWD/home \( ! -regex '.*/\..*' \) -type f -maxdepth 1` ; do
+  for file in `find $CWD/dots \( ! -regex '.*/\..*' \) -type f -maxdepth 1` ; do
     files+=(`basename $file`)
   done
   echo ${files[@]}
@@ -99,7 +125,7 @@ get_dots() {
 install_dots() {
   for dot in $DOTS ; do
     printf "%2slinking $dot file.\n"
-    ln -sf $CWD/home/$dot $HOME/.$dot
+    ln -sf $CWD/dots/$dot $HOME/.$dot
   done
 }
 
@@ -175,9 +201,9 @@ uninstall_directory() {
 
 restore_dots() {
   for dot in $DOTS; do
-    if [[ -f $CWD/backup/home/$dot ]]; then
+    if [[ -f $CWD/backup/dots/$dot ]]; then
       printf "%2srestoring .$dot file.\n"
-      mv $CWD/backup/home/$dot $HOME/.$dot
+      mv $CWD/backup/dots/$dot $HOME/.$dot
     fi
   done
 }
@@ -190,11 +216,11 @@ restore_directory() {
 }
 
 backup_dots() {
-  mkdir -p $CWD/backup/home
+  mkdir -p $CWD/backup/dots
   for dot in $DOTS; do
     if [[ -f $HOME/.$dot ]]; then
       printf "%2sbacking up .$dot file.\n"
-      cp $HOME/.$dot $CWD/backup/home/$dot
+      cp $HOME/.$dot $CWD/backup/dots/$dot
       rm $HOME/.$dot
     fi
   done

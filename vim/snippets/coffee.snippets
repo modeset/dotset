@@ -105,7 +105,7 @@ snippet try
 	catch err
 		${2}
 snippet timeout
-	setTimeout(( ->
+	setTimeout(( =>
 		${2}
 	), ${1:ms})
 snippet interval
@@ -116,3 +116,8 @@ snippet hdoc
 	${1:prop} = """
 		${2:# contents}
 		"""
+snippet bindable
+	class ${1:namespace}.${2:ClassName}
+		constructor: (el) ->
+			@el = $(el)
+	Bindable.register '${3:attrName}', $1.$2

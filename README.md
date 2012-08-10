@@ -1,4 +1,6 @@
-![mode set](https://secure.gravatar.com/avatar/aa8ea677b07f626479fd280049b0e19f?s=48 "mode set")
+![mode set](https://secure.gravatar.com/avatar/aa8ea677b07f626479fd280049b0e19f?s=75 "mode set")
+
+We &hearts; the Vim.
 
 # dotset
 
@@ -26,6 +28,7 @@ Get this party started:
       update       Removes existing setup and installs fresh from git
       uninstall    Restores original dot files (or latest backup)
       backup       Backup the existing dot files from the ~/ directory
+      weekly       Runs a weekly update script to keep your machine pure
       help         Print this message
 
 ### Install
@@ -43,11 +46,11 @@ Installing dotset works based on the following directory structure:
   `./dotils regem`
   - `gems.local.txt`: the list of user gems to install when running
   `./dotils regem` (_gitignored_)
-- **extras**: Terminal themes and templates. _Nothing installed,
-  manually install these_
-- **home**: Various `rc` type files for Bash, Vim, and System settings.
+- **dots**: Various `rc` type files for Bash, Vim, and System settings.
   _All files are symlinked to `~/` direcectory with a dot (`.`) in
   front of them_
+- **extras**: Terminal themes and templates. _Nothing installed,
+  manually install these_
 - **vim**: Directories of files that are symlinked into `~/.vim/`.
   _Only files are symlinked and not entire directories_
 
@@ -76,6 +79,13 @@ Don't care about backups? Just create an empty `./backup/` directory.
 
 To remove files created by dotset and restore from the `./backup/`
 directory, run `./dotset uninstall`
+
+### Weekly
+
+Wrapper script for updating various packages including: homebrew, pow,
+gems, npm (including global npm packages), and software update. It will
+also call `./dotset update` to make sure you have the latest. Run this
+puppy once a week.
 
 ## Extras, but really just install these
 
@@ -121,17 +131,14 @@ set:
 Since the `.gitconfig` file does not contain any user info, these are
 required to identify who you are. 
 
-The default Bash settings support both [rbenv][rbenv] and [rvm][rvm] environments.
+The default Bash settings support the [rbenv][rbenv] environment.
 
 ### Pimp your Vim ride
 
 We roll a custom installation of Vim over the default Mac installation.
 Within the `~/.bash_aliases` file is an alias to [homebrew's][homebrew]
 installation for the Vim executable. This executable is installed with
-ruby, python, and various other enhancements. To override this setting,
-put this in your `~/bashrc_local` file:
-
-      alias vim="vi"
+ruby, python, and various other enhancements.
 
 The default configuration comes with various [language and tooling
 plugins][bundles.txt]. To add additional plugins, create the file
@@ -159,18 +166,21 @@ Vim in Apple's Terminal. Keepin' it minimal._
 To take advantage of certain Bash and Vim settings, install the
 following:
 
-- [ack][ack] - `brew install ack`
-- [coffeetags][coffeetags] - `gem install coffeetags`
-- [ctags][ctags] - `brew install ctags`
-- [discount][discount] - `brew install discount`
-- [hub][hub] - `brew install hub` _**Note this is required!**_
-- [jshint][jshint] - `npm install jshint -g`
-- [jsonhint][jsonhint] - `npm install jsonlint -g`
-- [macvim][macvim] - `brew install macvim`
-- [node][node] - `brew install node`
-- [pow][pow] - `curl get.pow.cx | sh`
-- [pry][pry] - `gem install pry`
-- [rbenv][rbenv] - `brew install rbenv` or use [rvm][rvm]
+Program                  | Installation
+-------------------------|----------------------------------------------
+[ack][ack]               | `brew install ack`
+[ctags][ctags]           | `brew install ctags`
+[hub][hub]               | `brew install hub` _**Note this is required!**_
+[macvim][macvim]         | `brew install macvim`
+[node][node]             | `brew install node`
+[rbenv][rbenv]           | `brew install rbenv`
+[pow][pow]               | <code>curl get.pow.cx | sh</code>
+[coffeetags][coffeetags] | `gem install coffeetags`
+[red carpet][redcarpet]  | `gem install redcarpet`
+[pry][pry]               | `gem install pry`
+[jshint][jshint]         | `npm install jshint -g`
+[jsonhint][jsonhint]     | `npm install jsonlint -g`
+
 
 ## dotils
 
@@ -180,7 +190,6 @@ resetting up the machine.
       Usage: ./dotils [regem osx help]
 
       Commands:
-        regem        Reinstalls global gems and macvim after a ruby upgrade (rbenv)
         osx          Sets reasonable OS X defaults for a new system [http://mths.be/osx], take a look before running.
         help         Print this message
 
@@ -217,35 +226,12 @@ Within Vim type `:h mscheat` to view key and leader bindings for the
 Mode Set configuration.
 
 
-## Todo
-
-### Install script
-
-- Add a system update command (weekly task)
-- Add quick update (doesn't pull latest bundles)
-- Add function completion for `dotset` and `dotils` script
-- noob setting (auto install required gems, brews, npm modules, etc..)
-- Refactor the `dotset` script (could be a little simpler)
-
-### Bash
-
-- Prompts for ssh
-- Cleanup the `$PATH` variable
-- Configure `.pow`
-- Configure `pryrc` - colors should match Vim
-
-### Vim
-
-- Get tagbar to work with css/sass files
-- Pure out the snippets
-- Possibly bring back the [clang complete][clang] plugin
-
 <!-- link ids -->
 [ack]: http://betterthangrep.com/
 [bundles.txt]: https://github.com/modeset/dotset/blob/master/config/bundles.txt
 [coffeetags]: https://github.com/lukaszkorecki/CoffeeTags
 [ctags]: http://ctags.sourceforge.net/
-[discount]: http://www.pell.portland.or.us/~orc/Code/discount/
+[redcarpet]: https://github.com/tanoku/redcarpet/
 [deprecated]: https://gist.github.com/3018885
 [dotset]: https://github.com/modeset/dotset/blob/master/dotset
 [dotils]: https://github.com/modeset/dotset/blob/master/dotils
@@ -261,8 +247,5 @@ Mode Set configuration.
 [pow]: http://pow.cx/
 [pry]: http://pry.github.com/
 [rbenv]: https://github.com/sstephenson/rbenv
-[rvm]: https://rvm.io/
 [simbl]: http://www.culater.net/software/SIMBL/SIMBL.php
-
-[clang]: https://github.com/Rip-Rip/clang_complete
 
