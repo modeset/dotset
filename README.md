@@ -166,20 +166,23 @@ Vim in Apple's Terminal. Keepin' it minimal._
 To take advantage of certain Bash and Vim settings, install the
 following:
 
-Program                  | Installation
--------------------------|----------------------------------------------
-[ack][ack]               | `brew install ack`
-[ctags][ctags]           | `brew install ctags`
-[hub][hub]               | `brew install hub` _**Note this is required!**_
-[macvim][macvim]         | `brew install macvim`
-[node][node]             | `brew install node`
-[rbenv][rbenv]           | `brew install rbenv`
-[pow][pow]               | <code>curl get.pow.cx | sh</code>
-[coffeetags][coffeetags] | `gem install coffeetags`
-[red carpet][redcarpet]  | `gem install redcarpet`
-[pry][pry]               | `gem install pry`
-[jshint][jshint]         | `npm install jshint -g`
-[jsonhint][jsonhint]     | `npm install jsonlint -g`
+Program                          | Installation
+---------------------------------|-------------------------------------
+[ack][ack]                       | `brew install ack`
+[ctags][ctags]                   | `brew install ctags`
+[hub][hub]                       | `brew install hub` _**Note this is required!**_
+[macvim][macvim]                 | `brew install macvim`
+[node][node]                     | `brew install node`
+[mosh][mosh]                     | `brew install mobile-shell`
+[tmux][tmux]                     | `brew install tmux`
+[tmux-clipboard][tmux-clipboard] | `brew install reattach-to-user-namespace`
+[rbenv][rbenv]                   | `brew install rbenv`
+[pow][pow]                       | <code>curl get.pow.cx  | sh</code>
+[coffeetags][coffeetags]         | `gem install coffeetags`
+[red carpet][redcarpet]          | `gem install redcarpet`
+[pry][pry]                       | `gem install pry`
+[jshint][jshint]                 | `npm install jshint -g`
+[jsonhint][jsonhint]             | `npm install jsonlint -g`
 
 
 ## dotils
@@ -225,6 +228,28 @@ goodness.
 Within Vim type `:h mscheat` to view key and leader bindings for the
 Mode Set configuration.
 
+### Remote Pairing (with tmux)
+
+We use shared tmux sessions for remote pairing. This requires ssh or similar
+connections so your IP addresses have to be accessible. For stable and fast
+connections over WiFi we highly recommend using [mosh][mosh] it sets up a udp
+connection that is more tolerant of wireless latency. Then just install [tmux][tmux]
+and the [clipboard shim][tmux-clipboard] to improve the copy and paste functionality
+between the user session clipboard and the tmux session. Also install the
+[MouseTerm][mouseterm] plugin for a more native scrolling experience.
+
+1. Creating a session
+  
+   ```shell
+   tmux -S /tmp/session-name
+   ```
+  
+- Attaching to a session
+Assuming you are shelled into a machine with a running tmux session:
+
+  ```shell
+  tmux -S /tmp/session-name attach
+  ```
 
 <!-- link ids -->
 [ack]: http://betterthangrep.com/
@@ -248,4 +273,7 @@ Mode Set configuration.
 [pry]: http://pry.github.com/
 [rbenv]: https://github.com/sstephenson/rbenv
 [simbl]: http://www.culater.net/software/SIMBL/SIMBL.php
+[mosh]: http://mosh.mit.edu
+[tmux]: http://tmux.sourceforge.net
+[tmux-clipboard]: https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard 
 
