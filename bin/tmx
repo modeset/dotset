@@ -50,12 +50,17 @@ tmux_nb=$(trim `ls -la /tmp/ | egrep "$base_session" | wc -l`)
 if [[ "$tmux_nb" == "0" ]]; then
     make_session
 else
-  # if you don't call attach it will clobber the session
-  # you probably meant to attach to it.
-  # TODO: if someone kills the windows, the session file remains
-  # so when you try to detach it says there are 'no sessions'
-  # and exits. need to figure out a nice way to catch that
-  # error status and rm the bad session and make a new one.
-  echo "attaching to current tmux session $base_session..."
-  tmux -S /tmp/$base_session attach
+  # if you don't call attach when providing the -S flag
+  # it will clobber the session even though you probably meant
+  # to attach to it. The following just makes the most common
+  # intent the default.
+  # TODO: the call to attach still outputs to stdin, piping the
+  # following command to /dev/null doesn't seem to be working so
+  # you still see 'no sessions' if the attach fails.
+  cmd=`tmux -S /tmp/$base_session attach`
+  if [ echo $cmd ]; then
+    echo "a tmux session file exists name $base_session but it is dead."
+    echo "creating a new one of the same name and killing the old one"
+    rm /tmp/$base_session && make_session
+  fi
 fi
