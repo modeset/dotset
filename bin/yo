@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-ARGS=(go google github dochub rubydoc jquery wiki help)
+ARGS=(go google github dochub rubydoc jquery wiki feedme help)
 
 #/ go           Go to the url
 #\ yo go modeset.com
@@ -53,6 +53,30 @@ jquery() {
 #\ yo wiki mt mansfield
 wiki() {
   open "http://en.wikipedia.org/wiki/Special:Search?search=${ARGV[*]}&go=Go"
+}
+
+#/ feedme       Display a listing of current top 10 articles in your terminal
+#\ yo feedme news
+#\ yo feedme sports
+#\ yo feedme feeds.feedburner.com/thechangelog
+feedme() {
+  if [[ ${ARGV[0]} == "news" ]]; then
+    local url="http://rss.cnn.com/rss/cnn_topstories.rss"
+  elif [[ ${ARGV[0]} == "sports" ]]; then
+    local url="http://sports.espn.go.com/espn/rss/news"
+  else
+    local url="http://${ARGV[0]}"
+  fi
+
+  echo ""
+  echo "$(curl --silent $url | \
+    sed -e 's/<title>CNN.*<\/title/>/g' \
+        -e 's/<title>ESPN.*<\/title/>/g' | \
+    ack -m10 -o '<title>[^/]*</title>' | \
+    sed -e 's,.*<!\[CDATA\[\([^\]*\)\]\].*,\1,g' \
+        -e 's,.*<title>\([^<]*\)</title>.*,\1,g' \
+        )"
+  echo ""
 }
 
 #/ help         Print this message

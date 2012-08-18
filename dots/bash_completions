@@ -7,7 +7,7 @@ fi
 _yo() {
   COMPREPLY=()
   local cur="${COMP_WORDS[COMP_CWORD]}"
-  local opts="go google github dochub rubydoc jquery wiki help"
+  local opts="go google github dochub rubydoc jquery wiki feedme help"
   COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
 }
 complete -F _yo yo
