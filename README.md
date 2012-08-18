@@ -176,6 +176,7 @@ Program                          | Installation
 [mosh][mosh]                     | `brew install mobile-shell`
 [tmux][tmux]                     | `brew install tmux`
 [tmux-clipboard][tmux-clipboard] | `brew install reattach-to-user-namespace`
+[wemux][wemux]                   | `brew install wemux`
 [rbenv][rbenv]                   | `brew install rbenv`
 [pow][pow]                       | <code>curl get.pow.cx  | sh</code>
 [coffeetags][coffeetags]         | `gem install coffeetags`
@@ -238,17 +239,17 @@ and the [clipboard shim][tmux-clipboard] to improve the copy and paste functiona
 between the user session clipboard and the tmux session. Also install the
 [MouseTerm][mouseterm] plugin for a more native scrolling experience.
 
-1. Creating a session
+1. Creating a session with wemux
   
    ```shell
-   tmux -S /tmp/session-name
+   wemux start
    ```
   
 - Attaching to a session
 Assuming you are shelled into a machine with a running tmux session:
 
   ```shell
-  tmux -S /tmp/session-name attach
+  wemux
   ```
 
 <!-- link ids -->
@@ -275,5 +276,6 @@ Assuming you are shelled into a machine with a running tmux session:
 [simbl]: http://www.culater.net/software/SIMBL/SIMBL.php
 [mosh]: http://mosh.mit.edu
 [tmux]: http://tmux.sourceforge.net
-[tmux-clipboard]: https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard 
+[tmux-clipboard]: https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
+[wemux]: https://github.com/zolrath/wemux/
 
