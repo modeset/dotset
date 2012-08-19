@@ -72,7 +72,7 @@ feedme() {
   echo "$(curl --silent $url | \
     sed -e 's/<title>CNN.*<\/title/>/g' \
         -e 's/<title>ESPN.*<\/title/>/g' | \
-    ack -m10 -o '<title>[^/]*</title>' | \
+    ack -m15 -o '<title>[^/]*</title>' | \
     sed -e 's,.*<!\[CDATA\[\([^\]*\)\]\].*,\1,g' \
         -e 's,.*<title>\([^<]*\)</title>.*,\1,g' \
         )"
