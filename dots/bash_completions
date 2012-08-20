@@ -3,6 +3,12 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
  . `brew --prefix`/etc/bash_completion
 fi
 
+# ps_1 was moved so source this file instead
+if [ -f /usr/local/share/git-core/contrib/completion/git-prompt.sh ]; then
+  source /usr/local/share/git-core/contrib/completion/git-prompt.sh
+fi
+
+
 # Add completions for the `yo` program
 _yo() {
   COMPREPLY=()
