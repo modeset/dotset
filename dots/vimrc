@@ -101,7 +101,7 @@ let g:statline_show_encoding=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
 
-let g:SuperTabDefaultCompletionType='context'
+" let g:SuperTabDefaultCompletionType='context'
 let g:SuperTabLongestEnhanced=1
 let g:SuperTabLongestHighlight=1
 
