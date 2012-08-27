@@ -8,7 +8,6 @@
 .livereload
 .sass-cache
 .rake_cache
-tags
 typescript
 tmp/restart.txt
 vendor/bundle
