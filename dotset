@@ -28,7 +28,7 @@ install() {
 update() {
   check_for_dirty_repo
   uninstall
-  git pull
+  git pull --rebase
   install
 }
 
