@@ -26,5 +26,8 @@ if [[ -f ~/.bash_aliases ]]; then source ~/.bash_aliases; fi
 if [[ -f ~/.bash_completions ]]; then source ~/.bash_completions; fi
 if [[ -f ~/.bashrc_local ]]; then source ~/.bashrc_local; fi
 
-echo -e "\033[0;35m------------------------------------------\033[0m"
-
+# Only print if we're in an interactive shell.
+# Non-interactive stuff like rsync will blow up otherwise
+if [[ "$-" == *"i"* ]]; then
+  echo -e "\033[0;35m------------------------------------------\033[0m"
+fi
