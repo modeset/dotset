@@ -75,6 +75,7 @@
     "Raphael",
     "Backbone",
     "Modernizr",
+    "Bindable",
     "Ext",
     "_gaq"
   ]
