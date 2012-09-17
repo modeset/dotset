@@ -1,19 +1,21 @@
 # Jasmine ---------------------------------------------------------------------
 snippet des
-	describe '${1:description}', ->
-		${2}
+	describe '${1:description}', ->${2}
 snippet it
-	it '${1:description}', ->
-		${2}
+	it '${1:description}', ->${2}
+snippet desi
+	describe '${1:description}', ->
+		it '${2:description}', ->${3}
 snippet bef
-	beforeEach ->
-		${1}
+	beforeEach ->${1}
 snippet aft
-	afterEach ->
-		${1}
+	afterEach -> ${1}
 snippet runs
 	runs ->
-		${1}
+		${2}
+	waits ${1:duration}
+	runs ->
+		${3}
 snippet waits
 	waits ${1:duration}
 snippet ex
