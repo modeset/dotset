@@ -9,6 +9,9 @@
 .sass-cache
 .rake_cache
 typescript
-tmp/restart.txt
 vendor/bundle
 .bundle/
+tmp/**/*
+log/**/*
+tmp/*
+log/*
