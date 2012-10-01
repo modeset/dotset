@@ -76,6 +76,7 @@
     "Backbone",
     "Modernizr",
     "Bindable",
+    "utensil",
     "Ext",
     "_gaq"
   ]
