@@ -109,7 +109,7 @@ snippet timeout
 		${2}
 	), ${1:ms})
 snippet interval
-	setInterval(( ->
+	setInterval(( =>
 		${2}
 	), ${1:ms})
 snippet hdoc
@@ -118,6 +118,7 @@ snippet hdoc
 		"""
 snippet bindable
 	class ${1:namespace}.${2:ClassName}
-		constructor: (el) ->
-			@el = $(el)
+		constructor: (@el, data) ->
 	Bindable.register '${3:attrName}', $1.$2
+snippet scope
+	=> ${1:method} arguments...
