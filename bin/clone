@@ -1,0 +1,57 @@
+#! /usr/bin/env ruby
+
+require 'open-uri'
+
+errors = []
+errors << "you must supply the heroku remote" unless ARGV[0] and ARGV[0].length > 1
+errors << "install the heroku gem" unless `heroku`
+
+project = Dir.getwd.match(/(\w+)$/)[1]
+
+if ARGV[0] and ARGV[0].match(/help/)
+  puts "Clone: the easiest way to dupliate data for development"
+  puts "Puts a remote heroku datbase into your local postgres db for developmemt."
+  puts "Your heroku remotes must be defined in your git config."
+  puts "example"
+  puts "-------"
+  puts "clone staging"
+  puts ""
+  puts "clones the data from the staging heroku remote into the #{project}_development database"
+  exit
+end
+
+unless errors.empty?
+  errors.each {|e| STDERR.puts e}
+  puts "try --help if you need it"
+  exit
+end
+
+remote = ARGV[0]
+git_remotes = `git remote show`.split(/\s/)
+
+unless git_remotes.include?(remote)
+  puts "#{remote} remote is not defined"
+  exit
+end
+
+puts "talking to heroku to find backups for #{remote}"
+
+last_backup = `heroku pgbackups -r #{remote}`.split("\n")[-1][0...4]
+
+puts "cloning from last backup #{last_backup}"
+
+backup_url = `heroku pgbackups:url #{last_backup} -r #{remote}`
+
+backup_name = "#{last_backup}.dump"
+
+puts "backing up to local file: #{backup_name}"
+
+open(backup_name, "wb") do |file|
+  file << open(backup_url).read
+end
+
+puts "dumping data into #{project}_development database"
+
+system("pg_restore --verbose --clean --no-acl --no-owner -d #{project}_development #{backup_name}")
+puts "*" * 80
+puts "OK. Don't forget to remove the backup file before you commit."
