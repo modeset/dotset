@@ -57,6 +57,9 @@ hi SpellCap         ctermfg=NONE        ctermbg=NONE        cterm=underline
 hi SpellRare        ctermfg=NONE        ctermbg=NONE        cterm=NONE
 hi StatusLine       ctermfg=White       ctermbg=Blue        cterm=NONE
 hi StatusLineNC     ctermfg=Grey        ctermbg=Blue        cterm=NONE
+hi TabLine          ctermfg=White       ctermbg=Blue        cterm=NONE
+hi TabLineFill      ctermfg=White       ctermbg=Blue        cterm=NONE
+hi TabLineSel       ctermfg=White       ctermbg=NONE        cterm=NONE
 hi Title            ctermfg=White       ctermbg=NONE        cterm=NONE
 hi VertSplit        ctermfg=Black       ctermbg=Grey        cterm=NONE
 hi Visual           ctermfg=NONE        ctermbg=Blue        cterm=NONE
