@@ -12,6 +12,7 @@ https://github.com/vim-scripts/SearchComplete.git
 https://github.com/msanders/snipmate.vim.git
 https://github.com/ervandew/supertab.git
 https://github.com/scrooloose/syntastic.git
+https://github.com/mkitt/tabline.vim.git
 https://github.com/godlygeek/tabular.git
 https://github.com/majutsushi/tagbar.git
 https://github.com/jeetsukumaran/vim-buffergator.git
