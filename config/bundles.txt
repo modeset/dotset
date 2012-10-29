@@ -30,4 +30,5 @@ https://github.com/vim-ruby/vim-ruby.git
 https://github.com/millermedeiros/vim-statline.git
 https://github.com/tpope/vim-surround.git
 https://github.com/tpope/vim-unimpaired.git
+https://github.com/nelstrom/vim-visual-star-search.git
 https://github.com/vim-scripts/YankRing.vim.git
