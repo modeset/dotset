@@ -30,7 +30,7 @@
 [merge]
   tool = chdiff
   trustExitCode = 0
-[mergetool "chdiff"]
+[mergetool "filemerge"]
   cmd = /usr/bin/env chdiff --wait "$LOCAL" "$REMOTE"
   keepBackup = false
   trustExitCode = false
