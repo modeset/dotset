@@ -59,6 +59,7 @@ Global:
   <leader>ebl   => edit ~/.bashrc_local
   <leader>CN    => collapse multi-line whitespace to one line
   <leader>CW    => clean empty whitespace (when [\s] is in status line)
+  <leader>CS    => strip `{|}|;` (CSS/Scss => Sass, JS => CS...)
   <leader>rt    => reload ctags
   <leader>lc    => close syntastic's location list
   <leader>y     => in visual mode yank the contents to register "x"

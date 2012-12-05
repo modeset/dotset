@@ -182,6 +182,9 @@ map <leader>CN :%s/^\n\+/\r//<cr>:let @/=''<cr>
 " Clean whitespace
 map <leader>CW :%s/\s\+$//<cr>:let @/=''<cr>
 
+" Strip `{|}|;` (CSS/Scss -> Sass, JS -> CS...)
+map <leader>CS :%s/{//e \| %s/;//e \| %s/}//e \| %s/\s\+$//<cr><cr>:let @/=''<cr>
+
 " Reload ctags
 map <leader>rt :!ctags --extra=+f -R *<cr><cr>
 
