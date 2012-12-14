@@ -120,6 +120,8 @@ if executable('coffeetags')
       \}
 endif
 
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 " Key mapping
 " -----------------------------------------------------------------------------
 " RSI reduction
