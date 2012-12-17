@@ -11,8 +11,6 @@ set completion-query-items 1000
 set completion-ignore-case on
 set completion-prefix-display-length 10
 
-set editing-mode vi
-
 C-n: history-search-forward
 C-p: history-search-backward
 
