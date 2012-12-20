@@ -224,7 +224,7 @@ if !exists("autocommands_loaded")
   " File type settings on load
   au BufRead,BufNewFile *.scss set filetype=scss
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call s:setMarkdown()
-  au BufRead,BufNewFile *.json set filetype=json
+  au BufRead,BufNewFile *.json set filetype=json | setlocal conceallevel=0
   au BufRead,BufNewFile *.hamlc set filetype=haml
   au BufRead,BufNewFile *.txt call s:setWrapping()
   au BufRead,BufNewFile *.coffee call s:setCoffee()
