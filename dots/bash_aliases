@@ -3,7 +3,9 @@
 alias git=hub
 
 # Use MacVim's version of the Vim executable instead of the systems
-alias vim='/usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/Vim'
+MACVIM_BASE=`brew --cellar macvim`
+MACVIM_VERSION=`brew versions macvim --compact | cut -d ' ' -f 1`
+alias vim='$MACVIM_BASE/$MACVIM_VERSION/MacVim.app/Contents/MacOS/Vim'
 
 # Open Apps
 alias safari='open -a Safari'
