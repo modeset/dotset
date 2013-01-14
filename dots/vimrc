@@ -184,8 +184,11 @@ map <leader>CN :%s/^\n\+/\r//<cr>:let @/=''<cr>
 " Clean whitespace
 map <leader>CW :%s/\s\+$//<cr>:let @/=''<cr>
 
-" Strip `{|}|;` (CSS/Scss -> Sass, JS -> CS...)
-map <leader>CS :%s/{//e \| %s/;//e \| %s/}//e \| %s/\s\+$//<cr><cr>:let @/=''<cr>
+" Strip `{|}|;` (JS -> CS...)
+map <leader>CC :%s/{//e \| %s/;//e \| %s/}//e \| %s/\s\+$//<cr><cr>:let @/=''<cr>
+
+" Convert CSS to Sass
+map <leader>CS :!sass-convert -F css -T sass<cr>
 
 " Reload ctags
 map <leader>rt :!ctags --extra=+f -R *<cr><cr>
