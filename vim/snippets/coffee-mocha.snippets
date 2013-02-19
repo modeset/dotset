@@ -1,0 +1,35 @@
+# Mocha -----------------------------------------------------------------------
+snippet tb
+	expect(${1:target}).to.be ${2:value}
+snippet tbo
+	expect(${1:target}).to.be.ok()
+snippet tbeq
+	expect(${1:target}).to.be.eql ${2:value}
+snippet tba
+	expect(${1:target}).to.be.a ${2:value}
+snippet tban
+	expect(${1:target}).to.be.an ${2:value}
+snippet tm
+	expect(${1:target}).to.match ${2:value}
+snippet tc
+	expect(${1:target}).to.contain ${2:value}
+snippet thl
+	expect(${1:target}).to.have.length ${2:value}
+snippet tbe
+	expect(${1:target}).to.be.empty()
+snippet thp
+	expect(${1:target}).to.have.property ${2:value}
+snippet thk
+	expect(${1:target}).to.have.key ${2:value}
+snippet tbw
+	expect(${1:target}).to.be.within ${2:min}, ${3:max}
+snippet tbg
+	expect(${1:target}).to.be.above ${2:value}
+snippet tbl
+	expect(${1:target}).to.be.below ${2:value}
+snippet tf
+	expect(${1:target}).fail ${2:message}
+snippet sspy
+	spy = sinon.spy ${1:object}, '${2:method}'
+	${3}
+	expect(spy.called).to.be.ok()
