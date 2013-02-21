@@ -9,8 +9,6 @@ https://github.com/juvenn/mustache.vim.git
 https://github.com/scrooloose/nerdcommenter.git
 https://github.com/scrooloose/nerdtree.git
 https://github.com/vim-scripts/SearchComplete.git
-https://github.com/msanders/snipmate.vim.git
-https://github.com/ervandew/supertab.git
 https://github.com/scrooloose/syntastic.git
 https://github.com/mkitt/tabline.vim.git
 https://github.com/godlygeek/tabular.git
@@ -34,3 +32,4 @@ https://github.com/tpope/vim-surround.git
 https://github.com/tpope/vim-unimpaired.git
 https://github.com/nelstrom/vim-visual-star-search.git
 https://github.com/vim-scripts/YankRing.vim.git
+https://github.com/Valloric/YouCompleteMe.git
