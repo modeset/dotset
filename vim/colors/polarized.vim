@@ -1,4 +1,3 @@
-
 hi clear
 set background=dark
 
@@ -211,4 +210,7 @@ hi def link NERDTreeExecFile              Error
 " Statline
 hi User1                                  ctermfg=White ctermbg=Green cterm=NONE
 hi def link User4                         User1
+
+hi link EasyMotionTarget                  Identifier
+hi EasyMotionShade                        ctermfg=DarkGrey ctermbg=NONE cterm=NONE
 
