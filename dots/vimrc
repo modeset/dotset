@@ -108,8 +108,6 @@ let g:SuperTabLongestHighlight=1
 
 let g:snippets_dir=$HOME.'/.vim/snippets/'
 
-let g:gitgutter_enabled = 0
-
 let g:yankring_window_height=10
 let g:yankring_history_dir=$HOME.'/.vim/tmp/yankring/'
 
