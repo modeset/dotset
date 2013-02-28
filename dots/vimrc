@@ -108,6 +108,8 @@ let g:SuperTabLongestHighlight=1
 
 let g:snippets_dir=$HOME.'/.vim/snippets/'
 
+let g:gitgutter_enabled = 0
+
 let g:yankring_window_height=10
 let g:yankring_history_dir=$HOME.'/.vim/tmp/yankring/'
 
@@ -121,6 +123,7 @@ if executable('coffeetags')
 endif
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
 
 " Key mapping
 " -----------------------------------------------------------------------------
@@ -199,6 +202,9 @@ map <silent><leader>lc :lcl<cr>
 " Yank/paste contents using an unnamed register
 vmap <silent><leader>y "xy
 map <silent><leader>p "xp
+
+" Toggles GitGutter for a file
+map <silent><leader>gg :ToggleGitGutter<cr>
 
 " File type utility functions
 " -----------------------------------------------------------------------------
