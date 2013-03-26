@@ -1,11 +1,14 @@
-
 # Map git commands through hub
-alias git=hub
+if [ -e /usr/local/bin/hub ]; then 
+  alias git=hub
+fi
 
 # Use MacVim's version of the Vim executable instead of the systems
-MACVIM_BASE=`brew --cellar macvim`
-MACVIM_VERSION=`brew versions macvim --compact | cut -d ' ' -f 1`
-alias vim='$MACVIM_BASE/$MACVIM_VERSION/MacVim.app/Contents/MacOS/Vim'
+if [ -e /usr/local/bin/brew ]; then 
+  MACVIM_BASE=`brew --cellar macvim`
+  MACVIM_VERSION=`brew versions macvim --compact | cut -d ' ' -f 1`
+  alias vim='$MACVIM_BASE/$MACVIM_VERSION/MacVim.app/Contents/MacOS/Vim'
+fi
 
 # Open Apps
 alias safari='open -a Safari'
