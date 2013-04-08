@@ -202,7 +202,7 @@ vmap <silent><leader>y "xy
 map <silent><leader>p "xp
 
 " Toggles GitGutter for a file
-map <silent><leader>gg :ToggleGitGutter<cr>
+map <silent><leader>gg :GitGutterToggle<cr>
 
 " File type utility functions
 " -----------------------------------------------------------------------------
