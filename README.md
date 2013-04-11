@@ -239,6 +239,25 @@ and the [clipboard shim][tmux-clipboard] to improve the copy and paste functiona
 between the user session clipboard and the tmux session. Also install the
 [MouseTerm][mouseterm] plugin for a more native scrolling experience.
 
+#### Copy/Paste fallbacks for Tmux
+
+the `tmux.conf` sets some vi key bindings for use when
+[MouseTerm][mouseterm] and [clipboard shim][tmux-clipboard] are not
+available. 
+
+   ```shell
+   ctl-a [ # enters scroll mode, you'll see a buffer indicator on the top right of the window
+   # move up or down with arrow keys or j,k
+   esc # escape key enters copy mode
+   ctl-v # begin selection
+   ctl-y # yank highlighted text, this should drop you out of the buffer, if not, hit 'q'
+   # go to the tmux pane you want to paste
+   ctl-a p # if you want to paste into vim, enter insert mode first, then ctl-a p
+   ```
+
+
+#### wemux
+
 1. Creating a session with wemux
   
    ```shell
