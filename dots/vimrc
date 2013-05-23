@@ -111,6 +111,9 @@ let g:snippets_dir=$HOME.'/.vim/snippets/'
 let g:yankring_window_height=10
 let g:yankring_history_dir=$HOME.'/.vim/tmp/yankring/'
 
+" Make GitGutter not suck so much (repaints)
+let g:gitgutter_eager = 0
+
 let g:tagbar_sort=0
 if executable('coffeetags')
   let g:tagbar_type_coffee = {
