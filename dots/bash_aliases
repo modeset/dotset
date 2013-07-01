@@ -6,7 +6,7 @@ fi
 # Use MacVim's version of the Vim executable instead of the systems
 if [ -e /usr/local/bin/brew ]; then 
   MACVIM_BASE=`brew --cellar macvim`
-  MACVIM_VERSION=`brew versions macvim --compact | cut -d ' ' -f 1`
+  MACVIM_VERSION=`brew list --versions macvim --compact | cut -d ' ' -f 2`
   alias vim='$MACVIM_BASE/$MACVIM_VERSION/MacVim.app/Contents/MacOS/Vim'
 fi
 
