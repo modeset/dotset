@@ -10,7 +10,6 @@
   "dojo"         : false,
   "eqeqeq"       : true,
   "eqnull"       : false,
-  "es5"          : true,
   "esnext"       : true,
   "evil"         : false,
   "expr"         : false,
