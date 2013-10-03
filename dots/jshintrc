@@ -77,6 +77,8 @@
     "Bindable",
     "utensils",
     "Ext",
+    "Hammer",
+    "sinon",
     "_gaq"
   ]
 }
