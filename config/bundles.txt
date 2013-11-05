@@ -28,7 +28,7 @@ https://github.com/tpope/vim-markdown.git
 https://github.com/tpope/vim-rails.git
 https://github.com/tpope/vim-repeat.git
 https://github.com/vim-ruby/vim-ruby.git
-https://github.com/slim-template/vim-slim.git
+https://github.com/mkitt/vim-slim.git
 https://github.com/millermedeiros/vim-statline.git
 https://github.com/tpope/vim-surround.git
 https://github.com/tpope/vim-unimpaired.git
