@@ -138,7 +138,6 @@ hi def link cucumberFeature               Error
 hi def link htmlTag                       Number
 hi def link htmlEndTag                    Number
 hi def link htmlTagName                   Keyword
-hi def link htmlArg                       Label
 hi def link htmlSpecialChar               Error
 hi def link htmlH1                        Keyword
 hi def link htmlH2                        Keyword
@@ -150,6 +149,7 @@ hi def link htmlItalic                    Ignore
 hi def link htmlBold                      Ignore
 hi def link htmlBoldItalic                Ignore
 hi htmlLink                               ctermfg=DarkCyan     ctermbg=NONE   cterm=underline
+hi htmlArg                                ctermfg=DarkMagenta ctermbg=NONE cterm=NONE
 
 hi def link cssFunctionName               Structure
 hi def link cssColor                      SpecialComment
@@ -162,16 +162,35 @@ hi def link cssBraces                     SpecialChar
 hi def link cssURL                        htmlLink
 hi def link cssCommonAttr                 Ignore
 
-hi def link hamlIdChar                    Function
-hi def link hamlId                        Function
-hi def link hamlFilter                    Boolean
-hi def link hamlClassChar                 Label
-hi def link hamlClass                     Label
-
 hi def link sassIdChar                    Function
 hi def link sassId                        Function
 hi def link sassClassChar                 Label
 hi def link sassClass                     Label
+hi def link sassInterpolationDelimiter    Function
+hi def link sassReturn                    Identifier
+hi def link sassPlaceholder               Function
+hi def link sassMixing                    Function
+hi def link sassMixin                     Function
+hi def link sassExtend                    Function
+hi def link sassFunctionDecl              Function
+
+hi def link hamlClassChar                 Label
+hi def link hamlClass                     Label
+hi def link hamlIdChar                    Function
+hi def link hamlId                        Function
+hi def link hamlFilter                    Boolean
+hi def link hamlInterpolationDelimiter    Function
+hi def link hamlIEConditional             Error
+
+hi def link slimClassChar                 Label
+hi def link slimClass                     Label
+hi def link slimId                        Function
+hi def link slimIdChar                    Function
+hi def link slimFilter                    Boolean
+hi def link slimInlineTagChar             Error
+hi def link slimText                      Normal
+hi def link slimInterpolationDelimiter    Function
+hi def link slimIEConditional             Error
 
 hi def link javascriptNull                SpecialComment
 hi def link javaScriptPrototype           Structure
