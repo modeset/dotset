@@ -1,0 +1,47 @@
+# Slim
+snippet page
+	doctype 5
+	html(lang="en")
+		head
+			meta(charset="utf-8")
+			meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+			title Rock It
+			meta(name="author" content="Mode Set")
+			meta(name="viewport" content="width=device-width, initial-scale=1.0")
+			meta(name="apple-mobile-web-app-capable" content="yes")
+			meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
+		body
+snippet ie
+	/[if ${1:lte }IE${3: ${2:version}}]
+		${3}
+snippet md
+	markdown:
+		${1}
+snippet js
+	javascript:
+		${1}
+snippet ruby
+	ruby:
+		${1}
+snippet sass
+	sass:
+		${1}
+snippet meta
+	meta(name="${1:name}" content="${2:content}")${3}
+snippet partial
+	= render partial: ${1:path}'${2}
+snippet link
+	a(href="${1:#}") ${2:Link}
+snippet img
+	img(src="${1:path}" alt="${2:alt}")${3}
+snippet imgd
+	img(src="${1:path}" alt="${2:alt}" width="${3}" height="${4}")${5}
+snippet nav
+	nav
+		ul
+			li
+				a(href="${1:#}") ${2:Link}
+snippet list
+	ul
+		li
+			a(href="${1:#}") ${2:Link}
