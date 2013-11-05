@@ -162,16 +162,25 @@ hi def link cssBraces                     SpecialChar
 hi def link cssURL                        htmlLink
 hi def link cssCommonAttr                 Ignore
 
+hi def link sassIdChar                    Function
+hi def link sassId                        Function
+hi def link sassClassChar                 Label
+hi def link sassClass                     Label
+
 hi def link hamlIdChar                    Function
 hi def link hamlId                        Function
 hi def link hamlFilter                    Boolean
 hi def link hamlClassChar                 Label
 hi def link hamlClass                     Label
 
-hi def link sassIdChar                    Function
-hi def link sassId                        Function
-hi def link sassClassChar                 Label
-hi def link sassClass                     Label
+hi def link slimId                        Function
+hi def link slimIdChar                    Function
+hi def link slimFilter                    Boolean
+hi def link slimInlineTagChar             Boolean
+hi def link slimText                      Normal
+hi def link slimRuby                      Function
+hi def link slimInterpolationDelimiter    Function
+hi def link slimIEConditional             Error
 
 hi def link javascriptNull                SpecialComment
 hi def link javaScriptPrototype           Structure
