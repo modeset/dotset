@@ -237,6 +237,7 @@ if !exists("autocommands_loaded")
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call s:setMarkdown()
   au BufRead,BufNewFile *.json set filetype=json | setlocal conceallevel=0
   au BufRead,BufNewFile *.hamlc set filetype=haml
+  au BufRead,BufNewFile *.emblem set filetype=slim
   au BufRead,BufNewFile *.txt call s:setWrapping()
   au BufRead,BufNewFile *.coffee call s:setCoffee()
 
