@@ -16,3 +16,4 @@ log/**/*
 tmp/*
 log/*
 .powenv
+.env

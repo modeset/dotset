@@ -111,7 +111,8 @@ let g:snippets_dir=$HOME.'/.vim/snippets/'
 let g:yankring_window_height=10
 let g:yankring_history_dir=$HOME.'/.vim/tmp/yankring/'
 
-" Make GitGutter not suck so much (repaints)
+" Disable GitGutter on startup and not so eager on the repaints
+let g:gitgutter_enabled = 0
 let g:gitgutter_eager = 0
 
 let g:tagbar_sort=0
