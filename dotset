@@ -84,8 +84,6 @@ weekly() {
   printf "%sUpdating gems..\n"
   gem update
   gem cleanup
-  printf "%sUpdating global npm packages..\n"
-  npm update -g
   printf "%sUpdating dotset..\n"
   ./dotset update
   printf "%s-----------------------------------------------------------------\n"
