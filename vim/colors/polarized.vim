@@ -162,6 +162,7 @@ hi def link cssBraces                     SpecialChar
 hi def link cssURL                        htmlLink
 hi def link cssCommonAttr                 Ignore
 hi def link cssMedia                      Macro
+hi def link cssKeyFrame                   Macro
 
 hi def link sassIdChar                    Function
 hi def link sassId                        Function
