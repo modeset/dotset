@@ -135,7 +135,7 @@ install_directory() {
 install_pathogen() {
   printf "%sInstalling pathogen:\n"
   mkdir -p $HOME/.vim/autoload
-  curl -o $HOME/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
+  curl -LSso $HOME/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 }
 
 # Clone the bundle repositories into the `.vim/bundle` directory
