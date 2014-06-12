@@ -94,7 +94,7 @@ Within the `./extras/` directory are the `bashrc_local.example` and
 or creating new settings for Bash and Vim. To create these files run the
 following from your `~/` directory:
 
-      cp ~/path/to/dotset/extras/basrc_local.example ~/.basrc_local
+      cp ~/path/to/dotset/extras/bashrc_local.example ~/.bashrc_local
       cp ~/path/to/dotset/extras/vimrc.local.example ~/.vimrc.local
 
 The files `~/.basrc_local` and `~/.vimrc.local` are sourced by `.bashrc`
@@ -126,7 +126,6 @@ set:
       export GIT_COMMITTER_NAME='Your Name'
       export GIT_COMMITTER_EMAIL='your@email'
       export GITHUB_USER='Your GitHub Username'
-      export GITHUB_TOKEN='Your GitHub token'
 
 Since the `.gitconfig` file does not contain any user info, these are
 required to identify who you are. 
